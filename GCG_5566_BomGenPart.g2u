@@ -1,0 +1,2356 @@
+Program.Sub.ScreenSU.Start
+Gui.Progress..Create
+Gui.Progress..Caption("Progress")
+Gui.Progress..Size(18210,1215)
+Gui.Progress..MinX(0)
+Gui.Progress..MinY(0)
+Gui.Progress..Position(0,0)
+Gui.Progress..BackColor(-2147483633)
+Gui.Progress..MousePointer(0)
+Gui.Progress..Event(UnLoad,Progress_UnLoad)
+Gui.Progress.proBar.Create(ProgressBar)
+Gui.Progress.proBar.Size(17535,255)
+Gui.Progress.proBar.Position(255,330)
+Gui.Form..Create
+Gui.Form..Caption("Update Parts from BOM")
+Gui.Form..Size(20895,11430)
+Gui.Form..MinX(0)
+Gui.Form..MinY(0)
+Gui.Form..Position(0,0)
+Gui.Form..BackColor(-2147483633)
+Gui.Form..MousePointer(0)
+Gui.Form..Event(UnLoad,Form_UnLoad)
+Gui.Form.tabMain.Create(Tab)
+Gui.Form.tabMain.Size(16935,10725)
+Gui.Form.tabMain.Position(3750,150)
+Gui.Form.tabMain.Tabs(2)
+Gui.Form.tabMain.SetTab(0)
+Gui.Form.tabMain.Caption("BOM")
+Gui.Form.tabMain.SetTab(1)
+Gui.Form.tabMain.Caption("Settings")
+Gui.Form.chkSelectAllYes.Create(CheckBox)
+Gui.Form.chkSelectAllYes.Size(1155,360)
+Gui.Form.chkSelectAllYes.Position(165,75)
+Gui.Form.chkSelectAllYes.Caption("All Yes")
+Gui.Form.chkSelectAllYes.Event(Click,chkSelectAllYes_Click)
+Gui.Form.chkSelectAllYes.Parent("tabMain",0)
+Gui.Form.chkSelectAllYes.TabStop(True)
+Gui.Form.chkSelectAllYes.TabIndex(9)
+Gui.Form.chkSelectAllNo.Create(CheckBox)
+Gui.Form.chkSelectAllNo.Size(1155,360)
+Gui.Form.chkSelectAllNo.Position(1350,75)
+Gui.Form.chkSelectAllNo.Caption("All No")
+Gui.Form.chkSelectAllNo.Event(Click,chkSelectAllNo_Click)
+Gui.Form.chkSelectAllNo.Parent("tabMain",0)
+Gui.Form.chkSelectAllNo.TabStop(True)
+Gui.Form.chkSelectAllNo.TabIndex(10)
+Gui.Form.gsBom.Create(GsGridControl)
+Gui.Form.gsBom.Size(16680,9840)
+Gui.Form.gsBom.Position(75,435)
+Gui.Form.gsBom.Event(RowClick,gsBom_RowClick)
+Gui.Form.gsBom.Event(RowCellClick,gsBom_RowCellClick)
+Gui.Form.gsBom.Event(CellValueChanged,gsBom_CellValueChanged)
+Gui.Form.gsBom.Parent("tabMain",0)
+Gui.Form.gsBom.TabStop(True)
+Gui.Form.gsBom.TabIndex(44)
+Gui.Form.cmdSaveOption.Create(Button)
+Gui.Form.cmdSaveOption.Size(1170,375)
+Gui.Form.cmdSaveOption.Position(120,8430)
+Gui.Form.cmdSaveOption.Caption("Save Option")
+Gui.Form.cmdSaveOption.Event(Click,cmdSaveOption_Click)
+Gui.Form.cmdSaveOption.Parent("tabMain",1)
+Gui.Form.cmdSaveOption.TabStop(True)
+Gui.Form.cmdSaveOption.TabIndex(42)
+Gui.Form.cmdExport.Create(Button)
+Gui.Form.cmdExport.Size(855,375)
+Gui.Form.cmdExport.Position(15900,30)
+Gui.Form.cmdExport.Caption("Export")
+Gui.Form.cmdExport.Event(Click,cmdExport_Click)
+Gui.Form.cmdExport.Parent("tabMain",0)
+Gui.Form.cmdExport.TabStop(True)
+Gui.Form.cmdExport.TabIndex(11)
+Gui.Form.frDisplay.Create(Frame)
+Gui.Form.frDisplay.Size(6960,5445)
+Gui.Form.frDisplay.Position(90,120)
+Gui.Form.frDisplay.Parent("tabMain",1)
+Gui.Form.frDisplay.Caption("Display")
+Gui.Form.chkDisplayLevelCols.Create(CheckBox)
+Gui.Form.chkDisplayLevelCols.Size(1515,360)
+Gui.Form.chkDisplayLevelCols.Position(705,885)
+Gui.Form.chkDisplayLevelCols.Caption("Level Columns")
+Gui.Form.chkDisplayLevelCols.Parent("frDisplay")
+Gui.Form.chkDisplayLevelCols.TabStop(True)
+Gui.Form.chkDisplayLevelCols.TabIndex(13)
+Gui.Form.lblLevelWidth.Create(Label,"Level Column Width",True,1545,255,0,2820,960,True,0,"Arial",8,-2147483633,0)
+Gui.Form.lblLevelWidth.Parent("frDisplay")
+Gui.Form.txtLevelWidth.Create(TextBox,"60",True,420,300,0,4395,900,True,1,"Arial",8,-2147483643,2)
+Gui.Form.txtLevelWidth.NumericOnly(2)
+Gui.Form.txtLevelWidth.Parent("frDisplay")
+Gui.Form.txtLevelWidth.TabStop(True)
+Gui.Form.txtLevelWidth.TabIndex(14)
+Gui.Form.chkDisplayLocation.Create(CheckBox)
+Gui.Form.chkDisplayLocation.Size(1035,360)
+Gui.Form.chkDisplayLocation.Position(690,2415)
+Gui.Form.chkDisplayLocation.Parent("frDisplay")
+Gui.Form.chkDisplayLocation.Caption("Location")
+Gui.Form.chkDisplayLocation.TabStop(True)
+Gui.Form.chkDisplayLocation.TabIndex(21)
+Gui.Form.chkDisplayMemo_2.Create(CheckBox)
+Gui.Form.chkDisplayMemo_2.Size(1035,360)
+Gui.Form.chkDisplayMemo_2.Position(3255,1710)
+Gui.Form.chkDisplayMemo_2.Parent("frDisplay")
+Gui.Form.chkDisplayMemo_2.Caption("Memo 2")
+Gui.Form.chkDisplayMemo_2.TabStop(True)
+Gui.Form.chkDisplayMemo_2.TabIndex(19)
+Gui.Form.chkDisplayMemo_1.Create(CheckBox)
+Gui.Form.chkDisplayMemo_1.Size(1035,375)
+Gui.Form.chkDisplayMemo_1.Position(690,1710)
+Gui.Form.chkDisplayMemo_1.Parent("frDisplay")
+Gui.Form.chkDisplayMemo_1.Caption("Memo 1")
+Gui.Form.chkDisplayMemo_1.TabStop(True)
+Gui.Form.chkDisplayMemo_1.TabIndex(18)
+Gui.Form.chkDisplayDrawing.Create(CheckBox)
+Gui.Form.chkDisplayDrawing.Size(1035,375)
+Gui.Form.chkDisplayDrawing.Position(5490,1710)
+Gui.Form.chkDisplayDrawing.Parent("frDisplay")
+Gui.Form.chkDisplayDrawing.Caption("Drawing")
+Gui.Form.chkDisplayDrawing.TabStop(True)
+Gui.Form.chkDisplayDrawing.TabIndex(20)
+Gui.Form.chkDisplayUM_PURCHASING.Create(CheckBox)
+Gui.Form.chkDisplayUM_PURCHASING.Size(1680,375)
+Gui.Form.chkDisplayUM_PURCHASING.Position(690,4095)
+Gui.Form.chkDisplayUM_PURCHASING.Parent("frDisplay")
+Gui.Form.chkDisplayUM_PURCHASING.Caption("Purchasing UM")
+Gui.Form.chkDisplayUM_PURCHASING.TabStop(True)
+Gui.Form.chkDisplayUM_PURCHASING.TabIndex(29)
+Gui.Form.chkDisplayFACTOR_CONVERSION.Create(CheckBox)
+Gui.Form.chkDisplayFACTOR_CONVERSION.Size(2730,375)
+Gui.Form.chkDisplayFACTOR_CONVERSION.Position(3255,3270)
+Gui.Form.chkDisplayFACTOR_CONVERSION.Parent("frDisplay")
+Gui.Form.chkDisplayFACTOR_CONVERSION.Caption("Purchasing Conversion Factor")
+Gui.Form.chkDisplayFACTOR_CONVERSION.TabStop(True)
+Gui.Form.chkDisplayFACTOR_CONVERSION.TabIndex(26)
+Gui.Form.chkDisplayBin.Create(CheckBox)
+Gui.Form.chkDisplayBin.Size(840,375)
+Gui.Form.chkDisplayBin.Position(690,2835)
+Gui.Form.chkDisplayBin.Parent("frDisplay")
+Gui.Form.chkDisplayBin.Caption("Bin")
+Gui.Form.chkDisplayBin.TabStop(True)
+Gui.Form.chkDisplayBin.TabIndex(23)
+Gui.Form.chkDisplayFlag_Lot.Create(CheckBox)
+Gui.Form.chkDisplayFlag_Lot.Size(1155,375)
+Gui.Form.chkDisplayFlag_Lot.Position(3255,3690)
+Gui.Form.chkDisplayFlag_Lot.Parent("frDisplay")
+Gui.Form.chkDisplayFlag_Lot.Caption("Lot/Bin")
+Gui.Form.chkDisplayFlag_Lot.TabStop(True)
+Gui.Form.chkDisplayFlag_Lot.TabIndex(28)
+Gui.Form.chkDisplayAUTO_LOT_NUM.Create(CheckBox)
+Gui.Form.chkDisplayAUTO_LOT_NUM.Size(1155,375)
+Gui.Form.chkDisplayAUTO_LOT_NUM.Position(3255,4530)
+Gui.Form.chkDisplayAUTO_LOT_NUM.Parent("frDisplay")
+Gui.Form.chkDisplayAUTO_LOT_NUM.Caption("Auto Lot")
+Gui.Form.chkDisplayAUTO_LOT_NUM.TabStop(True)
+Gui.Form.chkDisplayAUTO_LOT_NUM.TabIndex(32)
+Gui.Form.chkDisplayREQUIRES_INSP.Create(CheckBox)
+Gui.Form.chkDisplayREQUIRES_INSP.Size(2085,375)
+Gui.Form.chkDisplayREQUIRES_INSP.Position(3255,4095)
+Gui.Form.chkDisplayREQUIRES_INSP.Parent("frDisplay")
+Gui.Form.chkDisplayREQUIRES_INSP.Caption("Required Inspection")
+Gui.Form.chkDisplayREQUIRES_INSP.TabStop(True)
+Gui.Form.chkDisplayREQUIRES_INSP.TabIndex(30)
+Gui.Form.chkDisplayTIME_MATERIAL_LEAD.Create(CheckBox)
+Gui.Form.chkDisplayTIME_MATERIAL_LEAD.Size(1155,375)
+Gui.Form.chkDisplayTIME_MATERIAL_LEAD.Position(690,4530)
+Gui.Form.chkDisplayTIME_MATERIAL_LEAD.Parent("frDisplay")
+Gui.Form.chkDisplayTIME_MATERIAL_LEAD.Caption("Lead Time")
+Gui.Form.chkDisplayTIME_MATERIAL_LEAD.TabStop(True)
+Gui.Form.chkDisplayTIME_MATERIAL_LEAD.TabIndex(31)
+Gui.Form.chkDisplayQTY_REORDER.Create(CheckBox)
+Gui.Form.chkDisplayQTY_REORDER.Size(1500,375)
+Gui.Form.chkDisplayQTY_REORDER.Position(3255,2835)
+Gui.Form.chkDisplayQTY_REORDER.Parent("frDisplay")
+Gui.Form.chkDisplayQTY_REORDER.Caption("Reorder Point")
+Gui.Form.chkDisplayQTY_REORDER.TabStop(True)
+Gui.Form.chkDisplayQTY_REORDER.TabIndex(24)
+Gui.Form.chkDisplayQty_Order.Create(CheckBox)
+Gui.Form.chkDisplayQty_Order.Size(1485,375)
+Gui.Form.chkDisplayQty_Order.Position(690,4980)
+Gui.Form.chkDisplayQty_Order.Parent("frDisplay")
+Gui.Form.chkDisplayQty_Order.Caption("Order Quantity")
+Gui.Form.chkDisplayQty_Order.TabStop(True)
+Gui.Form.chkDisplayQty_Order.TabIndex(33)
+Gui.Form.chkDisplayAMt_Price.Create(CheckBox)
+Gui.Form.chkDisplayAMt_Price.Size(1185,375)
+Gui.Form.chkDisplayAMt_Price.Position(690,3270)
+Gui.Form.chkDisplayAMt_Price.Parent("frDisplay")
+Gui.Form.chkDisplayAMt_Price.Caption("List Price")
+Gui.Form.chkDisplayAMt_Price.TabStop(True)
+Gui.Form.chkDisplayAMt_Price.TabIndex(25)
+Gui.Form.chkDisplayCode_Sort.Create(CheckBox)
+Gui.Form.chkDisplayCode_Sort.Size(1215,360)
+Gui.Form.chkDisplayCode_Sort.Position(3255,2415)
+Gui.Form.chkDisplayCode_Sort.Parent("frDisplay")
+Gui.Form.chkDisplayCode_Sort.Caption("Sort Code")
+Gui.Form.chkDisplayCode_Sort.TabStop(True)
+Gui.Form.chkDisplayCode_Sort.TabIndex(22)
+Gui.Form.chkDisplayCost.Create(CheckBox)
+Gui.Form.chkDisplayCost.Size(825,375)
+Gui.Form.chkDisplayCost.Position(690,3690)
+Gui.Form.chkDisplayCost.Parent("frDisplay")
+Gui.Form.chkDisplayCost.Caption("Cost")
+Gui.Form.chkDisplayCost.TabStop(True)
+Gui.Form.chkDisplayCost.TabIndex(27)
+Gui.Form.lbl2.Create(Label,"Bom",True,480,255,0,300,705,True,0,"Arial",8,-2147483633,0)
+Gui.Form.lbl2.Parent("frDisplay")
+Gui.Form.lbl4.Create(Label,"Part",True,480,255,0,300,2220,True,0,"Arial",8,-2147483633,0)
+Gui.Form.lbl4.Parent("frDisplay")
+Gui.Form.chkDisplayStock_Bin.Create(CheckBox)
+Gui.Form.chkDisplayStock_Bin.Size(1410,375)
+Gui.Form.chkDisplayStock_Bin.Position(3255,4980)
+Gui.Form.chkDisplayStock_Bin.Parent("frDisplay")
+Gui.Form.chkDisplayStock_Bin.Caption("Stocking Bin")
+Gui.Form.chkDisplayStock_Bin.TabStop(True)
+Gui.Form.chkDisplayStock_Bin.TabIndex(34)
+Gui.Form.chkDisplayDescription.Create(CheckBox)
+Gui.Form.chkDisplayDescription.Size(1215,375)
+Gui.Form.chkDisplayDescription.Position(690,1290)
+Gui.Form.chkDisplayDescription.Parent("frDisplay")
+Gui.Form.chkDisplayDescription.Caption("Description")
+Gui.Form.chkDisplayDescription.TabStop(True)
+Gui.Form.chkDisplayDescription.TabIndex(15)
+Gui.Form.chkDisplaySource.Create(CheckBox)
+Gui.Form.chkDisplaySource.Size(1035,375)
+Gui.Form.chkDisplaySource.Position(3255,1290)
+Gui.Form.chkDisplaySource.Parent("frDisplay")
+Gui.Form.chkDisplaySource.Caption("Source")
+Gui.Form.chkDisplaySource.TabStop(True)
+Gui.Form.chkDisplaySource.TabIndex(16)
+Gui.Form.chkDisplayQuantity.Create(CheckBox)
+Gui.Form.chkDisplayQuantity.Size(1035,375)
+Gui.Form.chkDisplayQuantity.Position(5490,1290)
+Gui.Form.chkDisplayQuantity.Parent("frDisplay")
+Gui.Form.chkDisplayQuantity.Caption("Quantity")
+Gui.Form.chkDisplayQuantity.TabStop(True)
+Gui.Form.chkDisplayQuantity.TabIndex(17)
+Gui.Form.chkALL.Create(CheckBox)
+Gui.Form.chkALL.Size(2145,360)
+Gui.Form.chkALL.Position(345,270)
+Gui.Form.chkALL.Parent("frDisplay")
+Gui.Form.chkALL.Caption("Check/Uncheck All")
+Gui.Form.chkALL.Event(Click,chkALL_Click)
+Gui.Form.chkALL.TabStop(True)
+Gui.Form.chkALL.TabIndex(12)
+Gui.Form.chkDisplayVendor_Sort.Create(CheckBox)
+Gui.Form.chkDisplayVendor_Sort.Size(1410,360)
+Gui.Form.chkDisplayVendor_Sort.Position(5490,2415)
+Gui.Form.chkDisplayVendor_Sort.Parent("frDisplay")
+Gui.Form.chkDisplayVendor_Sort.TabStop(True)
+Gui.Form.chkDisplayVendor_Sort.TabIndex(22)
+Gui.Form.chkDisplayVendor_Sort.Caption("Vendor Sort")
+Gui.Form.chkDisplayMatl_Cost.Create(CheckBox)
+Gui.Form.chkDisplayMatl_Cost.Size(1410,360)
+Gui.Form.chkDisplayMatl_Cost.Position(5490,2835)
+Gui.Form.chkDisplayMatl_Cost.Parent("frDisplay")
+Gui.Form.chkDisplayMatl_Cost.TabStop(True)
+Gui.Form.chkDisplayMatl_Cost.TabIndex(22)
+Gui.Form.chkDisplayMatl_Cost.Caption("Matl Cost")
+Gui.Form.frDec.Create(Frame)
+Gui.Form.frDec.Size(6960,1980)
+Gui.Form.frDec.Position(90,5640)
+Gui.Form.frDec.Parent("tabMain",1)
+Gui.Form.frDec.Caption("Decimal")
+Gui.Form.lbl5.Create(Label,"Qty",True,390,255,0,660,375,True,0,"Arial",8,-2147483633,0)
+Gui.Form.lbl5.Parent("frDec")
+Gui.Form.ddlQuantity.Create(DropDownList)
+Gui.Form.ddlQuantity.Size(585,330)
+Gui.Form.ddlQuantity.Position(660,585)
+Gui.Form.ddlQuantity.Parent("frDec")
+Gui.Form.ddlQuantity.TabStop(True)
+Gui.Form.ddlQuantity.TabIndex(35)
+Gui.Form.ddlCost.Create(DropDownList)
+Gui.Form.ddlCost.Size(585,330)
+Gui.Form.ddlCost.Position(660,1425)
+Gui.Form.ddlCost.Parent("frDec")
+Gui.Form.ddlCost.TabStop(True)
+Gui.Form.ddlCost.TabIndex(39)
+Gui.Form.lbl6.Create(Label,"Purchasing Conversion",True,1845,255,0,3285,1215,True,0,"Arial",8,-2147483633,0)
+Gui.Form.lbl6.Parent("frDec")
+Gui.Form.lbl7.Create(Label,"Cost",True,795,255,0,660,1215,True,0,"Arial",8,-2147483633,0)
+Gui.Form.lbl7.Parent("frDec")
+Gui.Form.lbl8.Create(Label,"Price",True,795,255,0,4605,435,True,0,"Arial",8,-2147483633,0)
+Gui.Form.lbl8.Parent("frDec")
+Gui.Form.lbl9.Create(Label,"Order Qty",True,885,255,0,1980,435,True,0,"Arial",8,-2147483633,0)
+Gui.Form.lbl9.Parent("frDec")
+Gui.Form.lbl10.Create(Label,"Reorder Qty",True,1185,255,0,3285,435,True,0,"Arial",8,-2147483633,0)
+Gui.Form.lbl10.Parent("frDec")
+Gui.Form.ddlFACTOR_CONVERSION.Create(DropDownList)
+Gui.Form.ddlFACTOR_CONVERSION.Size(585,330)
+Gui.Form.ddlFACTOR_CONVERSION.Position(3285,1425)
+Gui.Form.ddlFACTOR_CONVERSION.Parent("frDec")
+Gui.Form.ddlFACTOR_CONVERSION.TabStop(True)
+Gui.Form.ddlFACTOR_CONVERSION.TabIndex(41)
+Gui.Form.ddlAMT_Price.Create(DropDownList)
+Gui.Form.ddlAMT_Price.Size(585,330)
+Gui.Form.ddlAMT_Price.Position(4605,645)
+Gui.Form.ddlAMT_Price.Parent("frDec")
+Gui.Form.ddlAMT_Price.TabStop(True)
+Gui.Form.ddlAMT_Price.TabIndex(38)
+Gui.Form.ddlQty_Order.Create(DropDownList)
+Gui.Form.ddlQty_Order.Size(585,330)
+Gui.Form.ddlQty_Order.Position(1980,645)
+Gui.Form.ddlQty_Order.Parent("frDec")
+Gui.Form.ddlQty_Order.TabStop(True)
+Gui.Form.ddlQty_Order.TabIndex(36)
+Gui.Form.ddlQty_Reorder.Create(DropDownList)
+Gui.Form.ddlQty_Reorder.Size(585,330)
+Gui.Form.ddlQty_Reorder.Position(3285,645)
+Gui.Form.ddlQty_Reorder.Parent("frDec")
+Gui.Form.ddlQty_Reorder.TabStop(True)
+Gui.Form.ddlQty_Reorder.TabIndex(37)
+Gui.Form.ddlMATL_COST.Create(DropDownList)
+Gui.Form.ddlMATL_COST.Size(585,330)
+Gui.Form.ddlMATL_COST.Position(1980,1425)
+Gui.Form.ddlMATL_COST.Parent("frDec")
+Gui.Form.ddlMATL_COST.TabStop(True)
+Gui.Form.ddlMATL_COST.TabIndex(41)
+Gui.Form.lbl11.Create(Label,"Matl Cost",True,870,255,0,1980,1215,True,0,"Arial",8,-2147483633,0)
+Gui.Form.lbl11.Parent("frDec")
+Gui.Form.lblNote.Create(Label,"(*) Mandatory to create new Part",True,2535,255,0,2610,165,True,0,"Arial",8,-2147483633,0)
+Gui.Form.lblNote.Parent("tabMain",0)
+Gui.Form.proBarMainTab.Create(ProgressBar)
+Gui.Form.proBarMainTab.Size(4980,105)
+Gui.Form.proBarMainTab.Position(10815,225)
+Gui.Form.proBarMainTab.Parent("tabMain",0)
+Gui.Form.proBarMainTab.Visible(False)
+Gui.Form.lblLoading.Create(Label,"Loading...",False,2535,255,0,5340,165,True,0,"Arial",8,-2147483633,0)
+Gui.Form.lblLoading.Parent("tabMain",0)
+Gui.Form.lblLoading.ForeColor(8034025)
+Gui.Form.txtBoldNode.Create(TextBox,"",False,3345,300,0,6450,60,True,0,"Arial",8,-2147483643,1)
+Gui.Form.txtBoldNode.Parent("tabMain",0)
+Gui.Form.lblCreating.Create(Label,"Creating...",False,2535,255,0,5475,150,True,0,"Arial",8,-2147483633,0)
+Gui.Form.lblCreating.Parent("tabMain",0)
+Gui.Form.lblCreating.ForeColor(8034025)
+Gui.Form.lblUpdating.Create(Label,"Updating...",False,2535,255,0,5640,150,True,0,"Arial",8,-2147483633,0)
+Gui.Form.lblUpdating.Parent("tabMain",0)
+Gui.Form.lblUpdating.ForeColor(8034025)
+Gui.Form.lbl13.Create(Label,"Column Width Expanded",True,2595,255,0,75,7890,True,0,"Arial",8,-2147483633,0)
+Gui.Form.lbl13.Parent("tabMain",1)
+Gui.Form.txtExpandWidth.Create(TextBox,"100",True,540,300,0,2700,7815,True,1,"Arial",8,-2147483643,1)
+Gui.Form.txtExpandWidth.Parent("tabMain",1)
+Gui.Form.txtExpandWidth.NumericOnly(2)
+Gui.Form.frLeft.Create(Frame)
+Gui.Form.frLeft.Size(3555,10785)
+Gui.Form.frLeft.Position(75,90)
+Gui.Form.lbl1.Create(Label,"Bom",True,930,255,0,90,675,True,0,"Arial",8,-2147483633,0)
+Gui.Form.lbl1.Parent("frLeft")
+Gui.Form.txtPart.Create(TextBox,"",True,2070,300,0,90,885,True,0,"Arial",8,-2147483643,2)
+Gui.Form.txtPart.MaxLength(20)
+Gui.Form.txtPart.Parent("frLeft")
+Gui.Form.txtPart.TabStop(True)
+Gui.Form.txtPart.TabIndex(3)
+Gui.Form.cmdBrowseBom.Create(Button)
+Gui.Form.cmdBrowseBom.Size(390,375)
+Gui.Form.cmdBrowseBom.Position(2205,840)
+Gui.Form.cmdBrowseBom.Caption("^")
+Gui.Form.cmdBrowseBom.Event(Click,cmdBrowseBom_Click)
+Gui.Form.cmdBrowseBom.Parent("frLeft")
+Gui.Form.cmdBrowseBom.TabStop(True)
+Gui.Form.cmdBrowseBom.TabIndex(4)
+Gui.Form.cmdLoad.Create(Button)
+Gui.Form.cmdLoad.Size(825,375)
+Gui.Form.cmdLoad.Position(2640,840)
+Gui.Form.cmdLoad.Caption("Load")
+Gui.Form.cmdLoad.Event(Click,cmdLoad_Click)
+Gui.Form.cmdLoad.Parent("frLeft")
+Gui.Form.cmdLoad.TabStop(True)
+Gui.Form.cmdLoad.TabIndex(5)
+Gui.Form.lbl3.Create(Label,"Description",True,930,255,0,90,1305,True,0,"Arial",8,-2147483633,0)
+Gui.Form.lbl3.Parent("frLeft")
+Gui.Form.txtDescr.Create(TextBox,"",True,3375,300,0,90,1530,True,0,"Arial",8,-2147483643,2)
+Gui.Form.txtDescr.MaxLength(30)
+Gui.Form.txtDescr.Parent("frLeft")
+Gui.Form.txtDescr.TabStop(True)
+Gui.Form.txtDescr.TabIndex(6)
+Gui.Form.cmdCreateParts.Create(Button)
+Gui.Form.cmdCreateParts.Size(1470,375)
+Gui.Form.cmdCreateParts.Position(90,1935)
+Gui.Form.cmdCreateParts.Caption("Create New Part")
+Gui.Form.cmdCreateParts.Event(Click,cmdCreateParts_Click)
+Gui.Form.cmdCreateParts.Parent("frLeft")
+Gui.Form.cmdCreateParts.Enabled(False)
+Gui.Form.cmdCreateParts.TabStop(True)
+Gui.Form.cmdCreateParts.TabIndex(7)
+Gui.Form.cmdCUpdateExistingParts.Create(Button)
+Gui.Form.cmdCUpdateExistingParts.Size(1770,375)
+Gui.Form.cmdCUpdateExistingParts.Position(1710,1935)
+Gui.Form.cmdCUpdateExistingParts.Caption("Update Existing Part")
+Gui.Form.cmdCUpdateExistingParts.Parent("frLeft")
+Gui.Form.cmdCUpdateExistingParts.Enabled(False)
+Gui.Form.cmdCUpdateExistingParts.Event(Click,cmdCUpdateExistingParts_Click)
+Gui.Form.cmdCUpdateExistingParts.TabStop(True)
+Gui.Form.cmdCUpdateExistingParts.TabIndex(8)
+Gui.Form.trvBom.Create(TreeView)
+Gui.Form.trvBom.Size(3375,8265)
+Gui.Form.trvBom.Position(90,2400)
+Gui.Form.trvBom.Event(NodeClick,trvBom_NodeClick)
+Gui.Form.trvBom.Parent("frLeft")
+Gui.Form.trvBom.TabStop(True)
+Gui.Form.trvBom.TabIndex(43)
+Gui.Form.chkEditable.Create(CheckBox)
+Gui.Form.chkEditable.Size(1050,360)
+Gui.Form.chkEditable.Position(2400,270)
+Gui.Form.chkEditable.Caption("Editable")
+Gui.Form.chkEditable.Enabled(False)
+Gui.Form.chkEditable.Parent("frLeft")
+Gui.Form.chkEditable.TabStop(True)
+Gui.Form.chkEditable.TabIndex(2)
+Gui.Form.chkExpandCol.Create(CheckBox)
+Gui.Form.chkExpandCol.Size(2010,360)
+Gui.Form.chkExpandCol.Position(120,270)
+Gui.Form.chkExpandCol.Parent("frLeft")
+Gui.Form.chkExpandCol.Caption("Expand Columns")
+Gui.Form.chkExpandCol.Event(Click,chkExpandCol_Click)
+Program.Sub.ScreenSU.End
+
+Program.Sub.Preflight.Start
+v.Global.sLevelColumns.Declare
+v.Global.sUserID.Declare
+v.Global.iMaxLevel.Declare
+v.Global.sPLRange.Declare
+v.Global.sUMRange.Declare
+v.Global.sBinRange.Declare
+v.Global.sCode_SortRange.Declare
+v.Global.sLocationRange.Declare
+
+v.Global.sPLRange2.Declare
+v.Global.sUMRange2.Declare
+v.Global.sBinRange2.Declare
+v.Global.sCode_SortRange2.Declare
+v.Global.sLocationRange2.Declare
+v.Global.sVendorRange.Declare
+
+v.Global.sToBeDisplayedColumnNames.Declare(String,"Description,Source,Quantity,Drawing,Memo_1,Memo_2,Location,Bin,Amt_Price,Cost,UM_PURCHASING,TIME_MATERIAL_LEAD,Qty_Order,Code_Sort,Vendor_Sort,QTY_REORDER,Factor_Conversion,Matl_Cost,Flag_Lot,REQUIRES_INSP,AUTO_LOT_NUM,Stock_Bin")
+v.Global.sToConfigureDecimalColumnNames.Declare(String,"Quantity,Qty_Order,Qty_Reorder,Cost,Amt_Price,Factor_Conversion,Matl_Cost")
+
+v.Global.sBomColumns.Declare
+v.Global.sInvColumns.Declare
+Program.Sub.Preflight.End
+
+Program.Sub.Main.Start
+'BN, Mar, 2018
+'This project will explode a bom, display Inventory Master data of components, and can generate/Update new Part
+'Run from a custom menu item
+F.Intrinsic.Control.Try
+	v.Local.sError.Declare
+
+	F.ODBC.Connection!conx.OpenCompanyConnection
+	
+	'Get User ID used for Grid Options
+	F.Global.Security.GetUserID(v.Caller.User,v.Caller.CompanyCode,v.Global.sUserID)
+	
+	'Initialize Grid and Options
+	f.Intrinsic.UI.InvokeWaitDialog("Initialize...")
+		f.Intrinsic.Control.CallSub("Initialize_controls")
+	f.Intrinsic.UI.CloseWaitDialog
+	
+	'Set default tab
+	gui.Form.tabMain.SetTab(0)
+	
+	gui.Form..Show
+	f.Intrinsic.Control.CallSub("Set_Anchor")
+	
+	'Auto Expand Windows when open, as user tends to have a broad visibility of the grid
+	GUI.Form..WindowState(2)	
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}Subroutine: {2}{1}Subroutine called from:{6}{1}Error Occurred: {3}{1}Description: {4}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,v.Ambient.SubroutineCalledFrom,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	f.Intrinsic.Control.CallSub("Unload")
+F.Intrinsic.Control.EndTry
+Program.Sub.Main.End
+
+Program.Sub.UnLoad.Start
+f.Intrinsic.Control.Try
+	v.Local.sError.Declare
+
+	F.Intrinsic.Control.If(V.ODBC.conx.State,=,1)
+		F.ODBC.Connection!conx.close
+	F.Intrinsic.Control.EndIf
+	
+	f.Intrinsic.Control.End
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}Subroutine: {2}{1}Subroutine called from:{6}{1}Error Occurred: {3}{1}Description: {4}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,v.Ambient.SubroutineCalledFrom,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	f.Intrinsic.Control.CallSub("Unload")
+F.Intrinsic.Control.EndTry
+Program.Sub.UnLoad.End
+
+Program.Sub.Form_UnLoad.Start
+f.Intrinsic.Control.CallSub("Unload")
+Program.Sub.Form_UnLoad.End
+
+Program.Sub.Progress_UnLoad.Start
+gui.Progress..Visible(False)
+Program.Sub.Progress_UnLoad.End
+
+Program.Sub.Set_Anchor.Start
+F.Intrinsic.Control.Try
+	v.Local.sError.Declare
+	
+	'0 - None		1 - Top		2 - Bottom		4 - Left		8 - Right	
+	gui.Form.gsBom.Anchor(15)
+	gui.Form.cmdExport.Anchor(9)
+	gui.Form.proBarMainTab.Anchor(9)
+	gui.Form.tabMain.Anchor(15)
+	gui.Form.frLeft.Anchor(7)
+	gui.Form.trvBom.Anchor(7)
+	
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}Subroutine: {2}{1}Subroutine called from:{6}{1}Error Occurred: {3}{1}Description: {4}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,v.Ambient.SubroutineCalledFrom,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	f.Intrinsic.Control.CallSub("Unload")
+F.Intrinsic.Control.EndTry
+Program.Sub.Set_Anchor.End
+
+Program.Sub.Initialize_controls.Start
+f.Intrinsic.Control.Try
+	v.Local.sError.Declare
+	v.Local.sSQl.Declare
+	v.Local.sRet.Declare
+	v.Local.sToBeDisplayedColumnName.Declare
+	v.Local.iCnt.Declare
+	v.Local.sDisplayOption.Declare
+	v.Local.sDropdownName.Declare
+	v.Local.sDropdownControl.Declare
+	v.Local.iInner.Declare
+	v.Local.bExist.Declare
+	
+	'User has to be in this group to edit
+	f.Global.Security.IsInGroup(v.Caller.User,"BOMGEN",v.Caller.CompanyCode,v.Local.bExist)
+	F.Intrinsic.Control.If(V.LocaL.bExist)
+		'Enable control
+		GUI.Form.chkEditable.Enabled(True)
+		gui.Form.chkEditable.Value(1)
+		gui.Form.cmdCreateParts.Enabled(True)
+		gui.Form.cmdCUpdateExistingParts.Enabled(True)
+	F.Intrinsic.Control.EndIf	
+	
+	'Initialize the table and grid to apply clearrows, otherwise will throw error.
+	f.Data.DataTable.Create("Bom",True)
+	gui.Form.gsBom.AddGridviewFromDatatable("GVMain","Bom")
+	gui.Form.gsBom.MainView("GVMain")
+		
+	'Get User Width	Option
+	f.Intrinsic.String.Build("Select OptionValue from GCG_5417_Option where UserID = '{0}' and OptionName = 'LevelWidth'",v.Global.sUserID,v.Local.sSQL)
+	f.ODBC.Connection!conx.ExecuteAndReturn(v.Local.sSQl,v.Local.sRet)
+	f.Intrinsic.Control.If(v.Local.sRet,<>,"")
+		gui.Form.txtLevelWidth.Text(v.Local.sRet)
+	f.Intrinsic.Control.Else
+		'If not found set default to 60
+		gui.Form.txtLevelWidth.Text("60")
+	f.Intrinsic.Control.EndIf	
+	
+	'Get Display Level Column Option
+	f.Intrinsic.String.Build("Select OptionValue from GCG_5417_Option where UserID = '{0}' and OptionName = 'DisplayLevelColumns'",v.Global.sUserID,v.Local.sSQL)
+	f.ODBC.Connection!conx.ExecuteAndReturn(v.Local.sSQl,v.Local.sRet)
+	f.Intrinsic.Control.If(v.Local.sRet,=,"1")
+		gui.Form.chkDisplayLevelCols.Value(True)
+	f.Intrinsic.Control.EndIf
+	
+
+	'Expand Width for columns
+	f.Intrinsic.String.Build("Select OptionValue from GCG_5417_Option where UserID = '{0}' and OptionName = 'txtExpandWidth'",v.Global.sUserID,v.Local.sSQL)
+	f.ODBC.Connection!conx.ExecuteAndReturn(v.Local.sSQl,v.Local.sRet)
+	f.Intrinsic.Control.If(v.Local.sRet.Trim,<>,"")
+		gui.Form.txtExpandWidth.Text(v.Local.sRet.Trim)
+	f.Intrinsic.Control.EndIf
+	
+	'Get other column display option
+	f.Intrinsic.String.Split(v.Global.sToBeDisplayedColumnNames,",",v.Local.sToBeDisplayedColumnName)
+	f.Intrinsic.Control.For(v.Local.iCnt,0,v.Local.sToBeDisplayedColumnName.UBound,1)
+		f.Intrinsic.String.Build("chkDisplay{0}",v.Local.sToBeDisplayedColumnName(v.Local.iCnt),v.Local.sDisplayOption)
+		f.Intrinsic.String.Build("Select OptionValue from GCG_5417_Option where UserID = '{0}' and OptionName = '{1}'",v.Global.sUserID,v.Local.sDisplayOption,v.Local.sSQL)
+		f.ODBC.Connection!conx.ExecuteAndReturn(v.Local.sSQl,v.Local.sRet)
+		f.Intrinsic.Control.If(v.Local.sRet,=,"1")
+			gui.Form.[v.Local.sDisplayOption].Value(1)
+		f.Intrinsic.Control.Else
+			gui.Form.[v.Local.sDisplayOption].Value(0)
+		f.Intrinsic.Control.EndIf	
+	f.Intrinsic.Control.Next(v.Local.iCnt)
+	
+	'Generate Dropdown values for Decimal Options
+	f.Intrinsic.String.Split(v.Global.sToConfigureDecimalColumnNames,",",v.Local.sDropdownName)	
+	f.Intrinsic.Control.For(v.Local.iCnt,0,v.Local.sDropdownName.UBound,1)
+		f.Intrinsic.String.build("ddl{0}",v.Local.sDropdownName(v.Local.iCnt),v.Local.sDropdownControl)
+		'Add from 0 to 5 the dropdown control
+		f.Intrinsic.Control.For(v.Local.iInner,0,5,1)
+			gui.Form.[v.Local.sDropdownControl].AddItem(v.Local.iInner)
+		f.Intrinsic.Control.Next(v.Local.iInner)		
+		gui.Form.[v.Local.sDropdownControl].ListIndex(4)
+		'Select and set dropdown option		
+		f.Intrinsic.String.Build("Select OptionValue from GCG_5417_Option where UserID = '{0}' and OptionName = '{1}'",v.Global.sUserID,v.Local.sDropdownControl,v.Local.sSQL)
+		f.ODBC.Connection!conx.ExecuteAndReturn(v.Local.sSQl,v.Local.sRet)
+		f.Intrinsic.Control.If(v.Local.sRet,<>,"")
+			gui.Form.[v.Local.sDropdownControl].ListIndex(v.Local.sRet.Trim)
+		f.Intrinsic.Control.EndIf	
+	f.Intrinsic.Control.Next(v.Local.iCnt)
+	
+	'Create Source Code Dict to be used in the grid
+	f.Data.Dictionary.Create("SourceDict")
+	f.Data.Dictionary.AddItem("SourceDict","M","MS")
+	f.Data.Dictionary.AddItem("SourceDict","F","MJ")
+	f.Data.Dictionary.AddItem("SourceDict","P","PS")
+	f.Data.Dictionary.AddItem("SourceDict","J","PJ")
+	f.Data.Dictionary.AddItem("SourceDict","C","CS")
+	f.Data.Dictionary.AddItem("SourceDict","G","CJ")
+	f.Data.Dictionary.SetDefaultReturn("SourceDict","")
+	
+'This needs sometime to see if we really want to remove and not use it	
+	'Dropdown of Source Code used for Top Parent Bom
+'	gui.Form.ddlBomSource.AddItem("")
+'	gui.Form.ddlBomSource.AddItem("M - MS")
+'	gui.Form.ddlBomSource.AddItem("F - MJ")
+'	gui.Form.ddlBomSource.AddItem("P - PS")
+'	gui.Form.ddlBomSource.AddItem("J - PJ")
+'	gui.Form.ddlBomSource.AddItem("C - CS")
+'	gui.Form.ddlBomSource.AddItem("G - CJ")
+	
+	'Create Source Code Dict to be used for Top Parent Bom
+	f.Data.Dictionary.Create("ParentSourceDict")
+	f.Data.Dictionary.AddItem("ParentSourceDict","","")
+	f.Data.Dictionary.AddItem("ParentSourceDict","M","M - MS")
+	f.Data.Dictionary.AddItem("ParentSourceDict","F","F - MJ")
+	f.Data.Dictionary.AddItem("ParentSourceDict","P","P - PS")
+	f.Data.Dictionary.AddItem("ParentSourceDict","J","J - PJ")
+	f.Data.Dictionary.AddItem("ParentSourceDict","C","C - CS")
+	f.Data.Dictionary.AddItem("ParentSourceDict","G","G - CJ")
+	f.Data.Dictionary.SetDefaultReturn("ParentSourceDict","")
+	
+	'Get PL Range
+	f.ODBC.Connection!conx.ExecuteAndReturn("SELECT PRODUCT_LINE  +  ' ~ ' + Product_Line_Name as PL  FROM V_PRODUCT_LINE WHERE KEY_DATA = 'ORDPRDLN' AND LINE = '' Order by Product_Line",v.Local.sRet)
+	f.Intrinsic.Control.If(v.Local.sRet,<>,"")
+		f.Intrinsic.String.Replace(v.Local.sRet,"#$#","*!*",v.Global.sPLRange)
+	f.Intrinsic.Control.EndIf
+	f.ODBC.Connection!conx.ExecuteAndReturn("SELECT PRODUCT_LINE  as PL  FROM V_PRODUCT_LINE WHERE KEY_DATA = 'ORDPRDLN' AND LINE = '' Order by Product_Line",v.Local.sRet)
+	f.Intrinsic.Control.If(v.Local.sRet,<>,"")
+		f.Intrinsic.String.Replace(v.Local.sRet,"#$#","*!*",v.Global.sPLRange2)
+		f.Intrinsic.String.Build("*!*{0}*!*",v.Global.sPLRange2,v.Global.sPLRange2)
+	f.Intrinsic.Control.EndIf	
+
+	'Get UM Range
+	f.ODBC.Connection!conx.ExecuteAndReturn("SELECT CODE + ' ~ ' +  DESCR AS Code  FROM UM_CODES order by Code",v.Local.sRet)
+	f.Intrinsic.Control.If(v.Local.sRet,<>,"")
+		f.Intrinsic.String.Replace(v.Local.sRet,"#$#","*!*",v.Global.sUMRange)
+	f.Intrinsic.Control.EndIf
+	f.ODBC.Connection!conx.ExecuteAndReturn("SELECT CODE FROM UM_CODES order by Code",v.Local.sRet)
+	f.Intrinsic.Control.If(v.Local.sRet,<>,"")
+		f.Intrinsic.String.Replace(v.Local.sRet,"#$#","*!*",v.Global.sUMRange2)
+		f.Intrinsic.String.Build("*!*{0}*!*",v.Global.sUMRange2,v.Global.sUMRange2)
+	f.Intrinsic.Control.EndIf	
+	
+	'Get Bin Range
+	f.ODBC.Connection!conx.ExecuteAndReturn("SELECT Bin + ' ~ ' + Bin_Description as Bin FROM BIN_MASTER ORDER BY Bin,Location",v.Local.sRet)
+	f.Intrinsic.Control.If(v.Local.sRet,<>,"")
+		f.Intrinsic.String.Replace(v.Local.sRet,"#$#","*!*",v.Global.sBinRange)
+	f.Intrinsic.Control.EndIf
+	f.ODBC.Connection!conx.ExecuteAndReturn("SELECT Bin FROM BIN_MASTER ORDER BY Bin,Location",v.Local.sRet)
+	f.Intrinsic.Control.If(v.Local.sRet,<>,"")
+		f.Intrinsic.String.Replace(v.Local.sRet,"#$#","*!*",v.Global.sBinRange2)
+		f.Intrinsic.String.Build("*!*{0}*!*",v.Global.sBinRange2,v.Global.sBinRange2)		
+	f.Intrinsic.Control.EndIf
+	
+	'Get Code_Sort Range
+	f.ODBC.Connection!conx.ExecuteAndReturn("SELECT SORT_CODE + ' ~ ' + Descr as Code_Sort FROM INV_SORT ORDER BY SORT_CODE",v.Local.sRet)
+	f.Intrinsic.Control.If(v.Local.sRet,<>,"")
+		f.Intrinsic.String.Replace(v.Local.sRet,"#$#","*!*",v.Global.sCode_SortRange)
+	f.Intrinsic.Control.EndIf
+	f.ODBC.Connection!conx.ExecuteAndReturn("SELECT SORT_CODE FROM INV_SORT ORDER BY SORT_CODE",v.Local.sRet)
+	f.Intrinsic.Control.If(v.Local.sRet,<>,"")
+		f.Intrinsic.String.Replace(v.Local.sRet,"#$#","*!*",v.Global.sCode_SortRange2)
+		f.Intrinsic.String.Build("*!*{0}*!*",v.Global.sCode_SortRange2,v.Global.sCode_SortRange2)
+	f.Intrinsic.Control.EndIf
+	
+	'Get Location Range
+	f.ODBC.Connection!conx.ExecuteAndReturn("select Distinct Location from v_LOCATIONS order by Location",v.Local.sRet)
+	f.Intrinsic.Control.If(v.Local.sRet,<>,"")
+		f.Intrinsic.String.Replace(v.Local.sRet,"#$#","*!*",v.Global.sLocationRange)
+		f.Intrinsic.String.Build("*!*{0}",v.Global.sLocationRange,v.Global.sLocationRange)
+	f.Intrinsic.Control.EndIf
+	
+	'Get Vendor Sort
+	f.ODBC.Connection!conx.ExecuteAndReturn("select ltrim(RTRIM(Vendor)) + ' ~ ' + Name_Vendor from v_Vendor_Master order by Vendor",v.Local.sRet)
+	f.Intrinsic.Control.If(v.Local.sRet,<>,"")
+		f.Intrinsic.String.Replace(v.Local.sRet,"#$#","*!*",v.Global.sVendorRange)
+		f.Intrinsic.String.Build("*!*{0}",v.Global.sVendorRange,v.Global.sVendorRange)
+	f.Intrinsic.Control.EndIf	
+		
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}Subroutine: {2}{1}Subroutine called from:{6}{1}Error Occurred: {3}{1}Description: {4}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,v.Ambient.SubroutineCalledFrom,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	f.Intrinsic.Control.CallSub("Unload")
+F.Intrinsic.Control.EndTry
+Program.Sub.Initialize_controls.End
+
+Program.Sub.cmdBrowseBom_Click.Start
+'Browse a BOM
+f.Intrinsic.Control.Try
+	v.Local..BulkDeclareString(sError,sRet,sHold)
+
+	F.Intrinsic.UI.SetBrowserHotTypeAhead(True)	
+	Function.Intrinsic.UI.CommonBrowser(3010,"",Variable.Local.sRet)	
+	F.Intrinsic.Control.If(Variable.Local.sRet.IsCancel,=,False)
+		F.Intrinsic.String.Split(Variable.Local.sRet,"*!*",Variable.Local.sRet)
+		f.Intrinsic.String.GSSPartString(v.Local.sRet(0),v.Local.sRet(1),v.Local.sHold)
+		gui.Form.txtPart.Text(v.Local.sHold)
+		gui.Form.txtDescr.Text(v.Local.sRet(2))
+	F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}Subroutine: {2}{1}Subroutine called from:{6}{1}Error Occurred: {3}{1}Description: {4}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,v.Ambient.SubroutineCalledFrom,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	f.Intrinsic.Control.CallSub("Unload")
+F.Intrinsic.Control.EndTry
+Program.Sub.cmdBrowseBom_Click.End
+
+Program.Sub.cmdLoad_Click.Start
+'Load BOM to the grid and at the same time build the treeview
+f.Intrinsic.Control.Try
+	v.Local.sError.Declare
+	v.Local.sSQL.Declare
+	v.Local.sRet.Declare
+	v.Local.sHold.Declare
+	
+	'Turn on indicators
+	f.Intrinsic.UI.InvokeWaitDialog("Processing...")
+	gui.Form.lblLoading.Visible(True)
+	
+	'Make invisible the grid and treeview
+	gui.Form.gsBom.Visible(False)
+	gui.Form.trvBom.Visible(False)
+	
+	'Set default Tab to Bom tab
+	gui.Form.tabMain.SetTab(0)
+	
+	'Clear old nodes	
+	Gui.Form.trvBom.ClearItems
+	'Clear grid this way will make the grid reload faster
+	gui.Form.gsBom.ClearRows("GVMain")
+	'Clear intermediate node holder for event click
+	gui.Form.txtBoldNode.Text("")
+	
+	'Get Dictionaries
+	f.Intrinsic.Control.CallSub("Get_Dictionaries")	
+	
+	'Explode Bom
+	f.Intrinsic.Control.CallSub("Explode_Bom")
+
+	'Format grid
+	F.Intrinsic.Control.If(V.DataTable.Bom.RowCount,>,0)
+		'Set Source code for ParentPart
+		f.Intrinsic.String.Build("Select ltrim(rtrim(Code_Source)) as Code_Source from Inventory_Mst2 where ltrim(rtrim(Part)) = '{0}' and ltrim(rtrim(Location)) = '{1}'",v.DataTable.Bom(0).Part!FieldVAlTrim,v.DataTable.Bom(0).Location!FieldVAlTrim,v.Local.sSQL)
+		f.ODBC.Connection!conx.ExecuteAndReturn(v.Local.sSQL,v.Local.sRet)
+		f.Intrinsic.Control.If(v.Local.sRet,<>,"")
+			'If the top parent Bom is inventory part which is already created in inventory, set its Source code to the parent source code dropdown
+			v.Local.sHold.set(v.dictionary.ParentSourceDict![v.Local.sRet])
+			
+			'This needs sometime to see if we really want to remove and not use it	
+			gui.Form.ddlBomSource.Text(v.Local.sHold)
+			
+			v.Local.sHold.set(v.dictionary.SourceDict![v.Local.sRet])
+			f.Data.DataTable.SetValue("Bom",0,"Source2",v.Local.sRet,"Source",v.Local.sHold)
+		f.Intrinsic.Control.Else
+			gui.Form.ddlBomSource.Text("")
+		f.Intrinsic.Control.EndIf
+		'Add gridview and format
+		gui.Form.gsBom.AddGridviewFromDatatable("GVMain","Bom")	
+		gui.Form.gsBom.SuspendLayout()
+			f.Intrinsic.Control.CallSub("Format_gsBom")	
+			f.Intrinsic.Control.CallSub("Set_Format_By_Option")
+		gui.Form.gsBom.ResumeLayout()
+		gui.Form.gsBom.MainView("GVMain")		
+	F.Intrinsic.Control.EndIf
+	
+	'Visible the treeview
+	gui.Form.trvBom.Visible(True)
+	gui.Form.gsBom.Visible(True)
+	
+	'Turn off indicators
+	gui.Form.lblLoading.Visible(False)
+	f.Intrinsic.UI.CloseWaitDialog
+	
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}Subroutine: {2}{1}Subroutine called from:{6}{1}Error Occurred: {3}{1}Description: {4}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,v.Ambient.SubroutineCalledFrom,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	f.Intrinsic.Control.CallSub("Unload")
+F.Intrinsic.Control.EndTry
+Program.Sub.cmdLoad_Click.End
+
+Program.Sub.Get_Dictionaries.Start
+f.Intrinsic.Control.Try
+	v.Local.sError.Declare
+	v.Local.bExist.Declare
+	
+	'A./Get Inventory Master Information
+	f.Intrinsic.Control.If(v.DataTable.Inv.Exists)
+		f.Data.DataTable.Close("Inv")
+	f.Intrinsic.Control.EndIf
+	f.Data.DataTable.CreateFromSQL("Inv","conx","Select Part,'Yes' as PExist,'' as PExistTree,Location,rtrim(Description) as Description,Code_Sort,'' as Rev,Bin,UM_Inventory,UM_PURCHASING,FACTOR_CONVERSION,AMT_Price,Qty_Order,Qty_Reorder,TIME_MATERIAL_LEAD,Flag_Lot,Product_line from Inventory_Mstr",True)
+	'INV2
+	f.Intrinsic.Control.If(v.DataTable.Inv2.Exists)
+		f.Data.DataTable.Close("Inv2")
+	f.Intrinsic.Control.EndIf
+	f.Data.DataTable.CreateFromSQL("Inv2","conx","Select Part,REQUIRES_INSP,Issue_UM,Name_Vendor  from INVENTORY_MST2",True)
+	'INV3
+	f.Intrinsic.Control.If(v.DataTable.Inv3.Exists)
+		f.Data.DataTable.Close("Inv3")
+	f.Intrinsic.Control.EndIf	
+	f.Data.DataTable.CreateFromSQL("Inv3","conx","Select Part,Stock_Bin,AUTO_LOT_NUM  from INVENTORY_MST3",True)
+	'InvCost
+	f.Intrinsic.Control.If(v.DataTable.InvCost.Exists)
+		f.Data.DataTable.Close("InvCost")
+	f.Intrinsic.Control.EndIf		
+	f.Data.DataTable.CreateFromSQL("InvCost","conx","Select Part,Locn,Cost,Matl,labor,ovhd,outs,freight,oth  from INVENTORY_Cost",True)
+	
+	'***Create Inventory Dictionaries***
+	
+	'1/'INV dictionaries
+	'InvDescDict
+	f.Data.Dictionary.Exists("InvDescDict",v.Local.bExist)
+	f.Intrinsic.Control.If(v.Local.bExist)
+		f.Data.Dictionary.Close("InvDescDict")
+	f.Intrinsic.Control.EndIf
+	f.Data.Dictionary.CreateFromDataTable("InvDescDict","Inv","Part","Description")
+	f.Data.Dictionary.SetDefaultReturn("InvDescDict","")	
+	'ExistDict
+	f.Data.Dictionary.Exists("ExistDict",v.Local.bExist)
+	f.Intrinsic.Control.If(v.Local.bExist)
+		f.Data.Dictionary.Close("ExistDict")
+	f.Intrinsic.Control.EndIf
+	f.Data.Dictionary.CreateFromDataTable("ExistDict","Inv","Part","PExist")
+	f.Data.Dictionary.SetDefaultReturn("ExistDict","No")	
+	'ExistBooleanDict
+	f.Data.Dictionary.Exists("ExistTreeDict",v.Local.bExist)
+	f.Intrinsic.Control.If(v.Local.bExist)
+		f.Data.Dictionary.Close("ExistTreeDict")
+	f.Intrinsic.Control.EndIf
+	f.Data.Dictionary.CreateFromDataTable("ExistTreeDict","Inv","Part","PExistTree")
+	f.Data.Dictionary.SetDefaultReturn("ExistTreeDict","_Non Exist")	
+	'UMInvDict
+	f.Data.Dictionary.Exists("UMInvDict",v.Local.bExist)
+	f.Intrinsic.Control.If(v.Local.bExist)
+		f.Data.Dictionary.Close("UMInvDict")
+	f.Intrinsic.Control.EndIf
+	f.Data.Dictionary.CreateFromDataTable("UMInvDict","Inv","Part","UM_Inventory")
+	f.Data.Dictionary.SetDefaultReturn("UMInvDict","")	
+	'BinDict
+	f.Data.Dictionary.Exists("BinDict",v.Local.bExist)
+	f.Intrinsic.Control.If(v.Local.bExist)
+		f.Data.Dictionary.Close("BinDict")
+	f.Intrinsic.Control.EndIf
+	f.Data.Dictionary.CreateFromDataTable("BinDict","Inv","Part","Bin")
+	f.Data.Dictionary.SetDefaultReturn("BinDict","")	
+	'UM_PurchasingDict
+	f.Data.Dictionary.Exists("UM_PurchasingDict",v.Local.bExist)
+	f.Intrinsic.Control.If(v.Local.bExist)
+		f.Data.Dictionary.Close("UM_PurchasingDict")
+	f.Intrinsic.Control.EndIf
+	f.Data.Dictionary.CreateFromDataTable("UM_PurchasingDict","Inv","Part","UM_Purchasing")
+	f.Data.Dictionary.SetDefaultReturn("UM_PurchasingDict","")
+	'Code_SortDict
+	f.Data.Dictionary.Exists("Code_SortDict",v.Local.bExist)
+	f.Intrinsic.Control.If(v.Local.bExist)
+		f.Data.Dictionary.Close("Code_SortDict")
+	f.Intrinsic.Control.EndIf
+	f.Data.Dictionary.CreateFromDataTable("Code_SortDict","Inv","Part","Code_Sort")
+	f.Data.Dictionary.SetDefaultReturn("Code_SortDict","")
+	'Factor_ConversionDict
+	f.Data.Dictionary.Exists("Factor_ConversionDict",v.Local.bExist)
+	f.Intrinsic.Control.If(v.Local.bExist)
+		f.Data.Dictionary.Close("Factor_ConversionDict")
+	f.Intrinsic.Control.EndIf
+	f.Data.Dictionary.CreateFromDataTable("Factor_ConversionDict","Inv","Part","Factor_Conversion")
+	f.Data.Dictionary.SetDefaultReturn("Factor_ConversionDict",0)
+	'AMT_PriceDict
+	f.Data.Dictionary.Exists("AMT_PriceDict",v.Local.bExist)
+	f.Intrinsic.Control.If(v.Local.bExist)
+		f.Data.Dictionary.Close("AMT_PriceDict")
+	f.Intrinsic.Control.EndIf
+	f.Data.Dictionary.CreateFromDataTable("AMT_PriceDict","Inv","Part","AMT_Price")
+	f.Data.Dictionary.SetDefaultReturn("AMT_PriceDict",0)
+	'Qty_OrderDict
+	f.Data.Dictionary.Exists("Qty_OrderDict",v.Local.bExist)
+	f.Intrinsic.Control.If(v.Local.bExist)
+		f.Data.Dictionary.Close("Qty_OrderDict")
+	f.Intrinsic.Control.EndIf
+	f.Data.Dictionary.CreateFromDataTable("Qty_OrderDict","Inv","Part","Qty_Order")
+	f.Data.Dictionary.SetDefaultReturn("Qty_OrderDict",0)
+	'Qty_ReorderDict
+	f.Data.Dictionary.Exists("Qty_ReorderDict",v.Local.bExist)
+	f.Intrinsic.Control.If(v.Local.bExist)
+		f.Data.Dictionary.Close("Qty_ReorderDict")
+	f.Intrinsic.Control.EndIf
+	f.Data.Dictionary.CreateFromDataTable("Qty_ReorderDict","Inv","Part","Qty_Reorder")
+	f.Data.Dictionary.SetDefaultReturn("Qty_ReorderDict",0)	
+	'TIME_MATERIAL_LEADDict
+	f.Data.Dictionary.Exists("TIME_MATERIAL_LEADDict",v.Local.bExist)
+	f.Intrinsic.Control.If(v.Local.bExist)
+		f.Data.Dictionary.Close("TIME_MATERIAL_LEADDict")
+	f.Intrinsic.Control.EndIf
+	f.Data.Dictionary.CreateFromDataTable("TIME_MATERIAL_LEADDict","Inv","Part","TIME_MATERIAL_LEAD")
+	f.Data.Dictionary.SetDefaultReturn("TIME_MATERIAL_LEADDict",0)
+	'Flag_LotDict
+	f.Data.Dictionary.Exists("Flag_LotDict",v.Local.bExist)
+	f.Intrinsic.Control.If(v.Local.bExist)
+		f.Data.Dictionary.Close("Flag_LotDict")
+	f.Intrinsic.Control.EndIf
+	f.Data.Dictionary.CreateFromDataTable("Flag_LotDict","Inv","Part","Flag_Lot")
+	f.Data.Dictionary.SetDefaultReturn("Flag_LotDict","")
+	'PRODUCT_LINEDict
+	f.Data.Dictionary.Exists("PRODUCT_LINEDict",v.Local.bExist)
+	f.Intrinsic.Control.If(v.Local.bExist)
+		f.Data.Dictionary.Close("PRODUCT_LINEDict")
+	f.Intrinsic.Control.EndIf
+	f.Data.Dictionary.CreateFromDataTable("PRODUCT_LINEDict","Inv","Part","PRODUCT_LINE")
+	f.Data.Dictionary.SetDefaultReturn("PRODUCT_LINEDict","")
+'	'AMT_ALT_COSTDict
+'	f.Data.Dictionary.Exists("AMT_ALT_COSTDict",v.Local.bExist)
+'	f.Intrinsic.Control.If(v.Local.bExist)
+'		f.Data.Dictionary.Close("AMT_ALT_COSTDict")
+'	f.Intrinsic.Control.EndIf
+'	f.Data.Dictionary.CreateFromDataTable("AMT_ALT_COSTDict","Inv","Part","AMT_ALT_COST")
+'	f.Data.Dictionary.SetDefaultReturn("AMT_ALT_COSTDict",0)
+	'PartLocDict
+	f.Data.Dictionary.Exists("PartLocDict",v.Local.bExist)
+	f.Intrinsic.Control.If(v.Local.bExist)
+		f.Data.Dictionary.Close("PartLocDict")
+	f.Intrinsic.Control.EndIf
+	f.Data.Dictionary.CreateFromDataTable("PartLocDict","Inv","Part","Location")
+	f.Data.Dictionary.SetDefaultReturn("PartLocDict","")	
+		
+	'2/INV2 Dictionaries
+	'Requires_Insp
+	f.Data.Dictionary.Exists("REQUIRES_INSPDict",v.Local.bExist)
+	f.Intrinsic.Control.If(v.Local.bExist)
+		f.Data.Dictionary.Close("REQUIRES_INSPDict")
+	f.Intrinsic.Control.EndIf
+	f.Data.Dictionary.CreateFromDataTable("REQUIRES_INSPDict","Inv2","Part","REQUIRES_INSP")
+	f.Data.Dictionary.SetDefaultReturn("REQUIRES_INSPDict","")
+	
+	'Issue_UM
+	f.Data.Dictionary.Exists("Issue_UMDict",v.Local.bExist)
+	f.Intrinsic.Control.If(v.Local.bExist)
+		f.Data.Dictionary.Close("Issue_UMDict")
+	f.Intrinsic.Control.EndIf
+	f.Data.Dictionary.CreateFromDataTable("Issue_UMDict","Inv2","Part","Issue_UM")
+	f.Data.Dictionary.SetDefaultReturn("Issue_UMDict","")
+	'Vendor_Sort
+	f.Data.Dictionary.Exists("Vendor_SortDict",v.Local.bExist)
+	f.Intrinsic.Control.If(v.Local.bExist)
+		f.Data.Dictionary.Close("Vendor_SortDict")
+	f.Intrinsic.Control.EndIf
+	f.Data.Dictionary.CreateFromDataTable("Vendor_SortDict","Inv2","Part","Name_Vendor")
+	f.Data.Dictionary.SetDefaultReturn("Vendor_SortDict","")	
+	
+	'3/INV3 Dictionaries
+	'Stock_BinDict
+	f.Data.Dictionary.Exists("Stock_BinDict",v.Local.bExist)
+	f.Intrinsic.Control.If(v.Local.bExist)
+		f.Data.Dictionary.Close("Stock_BinDict")
+	f.Intrinsic.Control.EndIf
+	f.Data.Dictionary.CreateFromDataTable("Stock_BinDict","Inv3","Part","Stock_Bin")
+	f.Data.Dictionary.SetDefaultReturn("Stock_BinDict","")
+	'AUTO_LOT_NUMDict
+	f.Data.Dictionary.Exists("AUTO_LOT_NUMDict",v.Local.bExist)
+	f.Intrinsic.Control.If(v.Local.bExist)
+		f.Data.Dictionary.Close("AUTO_LOT_NUMDict")
+	f.Intrinsic.Control.EndIf
+	f.Data.Dictionary.CreateFromDataTable("AUTO_LOT_NUMDict","Inv3","Part","AUTO_LOT_NUM")
+	f.Data.Dictionary.SetDefaultReturn("AUTO_LOT_NUMDict","")
+	
+	'B./Get BOM_ENG
+	f.Intrinsic.Control.If(v.DataTable.BOM_ENG.Exists)
+		f.Data.DataTable.Close("BOM_ENG")
+	f.Intrinsic.Control.EndIf
+	f.Data.DataTable.CreateFromSQL("BOM_ENG","conx","Select Part,rtrim(Description) as Description,rtrim(Memo_1) as Memo_1,rtrim(Memo_2) as Memo_2 from BOM_ENG",True)
+	
+	'***Create BOM Dictionaries***
+	
+	'1/BomDescDict
+	f.Data.Dictionary.Exists("BomDescDict",v.Local.bExist)
+	f.Intrinsic.Control.If(v.Local.bExist)
+		f.Data.Dictionary.Close("BomDescDict")
+	f.Intrinsic.Control.EndIf
+	f.Data.Dictionary.CreateFromDataTable("BomDescDict","BOM_ENG","Part","Description")
+	f.Data.Dictionary.SetDefaultReturn("BomDescDict","")
+	'2/Memo_1Dict
+	f.Data.Dictionary.Exists("Memo_1Dict",v.Local.bExist)
+	f.Intrinsic.Control.If(v.Local.bExist)
+		f.Data.Dictionary.Close("Memo_1Dict")
+	f.Intrinsic.Control.EndIf
+	f.Data.Dictionary.CreateFromDataTable("Memo_1Dict","BOM_ENG","Part","Memo_1")
+	f.Data.Dictionary.SetDefaultReturn("Memo_1Dict","")
+	'3/Memo_2Dict
+	f.Data.Dictionary.Exists("Memo_2Dict",v.Local.bExist)
+	f.Intrinsic.Control.If(v.Local.bExist)
+		f.Data.Dictionary.Close("Memo_2Dict")
+	f.Intrinsic.Control.EndIf
+	f.Data.Dictionary.CreateFromDataTable("Memo_2Dict","BOM_ENG","Part","Memo_2")
+	f.Data.Dictionary.SetDefaultReturn("Memo_2Dict","")
+	
+	'4/Inv Matl Cost
+	f.Data.Dictionary.Exists("Matl_CostDict",v.Local.bExist)
+	f.Intrinsic.Control.If(v.Local.bExist)
+		f.Data.Dictionary.Close("Matl_CostDict")
+	f.Intrinsic.Control.EndIf
+	f.Data.Dictionary.CreateFromDataTable("Matl_CostDict","InvCost","Part","Matl")
+	f.Data.Dictionary.SetDefaultReturn("Matl_CostDict",0)
+
+	
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}Subroutine: {2}{1}Subroutine called from:{6}{1}Error Occurred: {3}{1}Description: {4}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,v.Ambient.SubroutineCalledFrom,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	f.Intrinsic.Control.CallSub("Unload")
+F.Intrinsic.Control.EndTry	
+Program.Sub.Get_Dictionaries.End
+
+Program.Sub.Explode_Bom.Start
+'Explode the Bom, build the data table BOM and build the treeview for the BOM
+f.Intrinsic.Control.Try
+	v.Local.sError.Declare
+	v.Local.sSQL.Declare
+	v.Local.sHold.Declare
+	v.Local.sFilter.Declare	
+	v.Local.sRet.Declare
+	
+	v.Local.sParent.Declare
+	v.Local.sPart.Declare
+	v.Local.sCost.Declare
+	v.Local.sBom_UM.Declare
+	v.Local.sUM_Inventory.Declare
+	v.Local.sQty6.Declare
+	v.Local.sSource.Declare
+	v.Local.sSource2.Declare
+	v.Local.sPosition.Declare
+	v.Local.sColumn.Declare	
+	
+	v.Local.sRootNode.Declare
+	v.Local.sNodeToAdd.Declare	
+	v.Local.sDisplayPart.Declare
+	V.Local.sDescription.Declare
+	v.Local.sMatl_Cost.Declare
+	
+	v.Local.iCnt.Declare	
+	v.Local.iChild.Declare
+	v.Local.iLevel.Declare
+	v.Local.iNextLevel.Declare
+	v.Local.iS.Declare
+	v.Local.iChildUbound.Declare
+	v.Local.iNextPosition.Declare
+	v.Local.iHold.Declare
+	v.Local.iIndexToInsert.Declare	
+	
+	v.Local.bStop.Declare
+	v.Local.fQty.Declare	
+	v.Local.sParentNode.Declare
+	
+	'Create table AllBoms for filtering any BOM, that way we dont have to go back and forth with DB	
+	f.Intrinsic.Control.If(v.DataTable.AllBoms.Exists)
+		f.Data.DataTable.close("AllBoms")
+	f.Intrinsic.Control.EndIf
+	f.Data.DataTable.CreateFromSQL("AllBoms","conx","Select Sequence_Bom,Parent,Part,Quantity,Cost,UM_Inventory as Bom_UM,Case When Sequence_Bom  = '0000' then Convert('1',SQL_Float) When Sequence_Bom  <> '0000'  then Quantity_6 End as Quantity_6,Source as  Source2,'' as Source,Drawing from BOM_MSTR Order by Sequence_Bom",True)
+	f.Intrinsic.String.Build("[Parent] = '{0}'",v.Screen.Form!txtPart.Text,v.Local.sFilter)
+	f.Data.DataView.Create("AllBoms","AllBomsDV",22,v.Local.sFilter,"Sequence_Bom")
+	
+	'Fill in Source Code
+	f.Data.DataTable.FillFromDictionary("AllBoms","SourceDict","Source2","Source")
+	
+	'0/Create Bom table structure
+	f.Intrinsic.Control.If(v.DataTable.Bom.Exists)
+		f.Data.DataTable.Close("Bom")
+	f.Intrinsic.Control.EndIf
+	'Create table BOM
+	f.Data.DataView.ToDataTable("AllBoms","AllBomsDV","Bom",True)
+	'Add fields
+	f.Data.DataTable.AddColumn("Bom","Level","long",1)
+	f.Data.DataTable.AddColumn("Bom","Position","String","")
+	f.Data.DataTable.AddColumn("Bom","Node","String","")	
+	f.Data.DataTable.AddColumn("Bom","Seq",Long)
+	'Add fields	
+	f.Data.DataTable.AddColumn("Bom","UM_Inventory","String","")
+	f.Data.DataTable.AddColumn("Bom","Memo_1","String","")
+	f.Data.DataTable.AddColumn("Bom","Memo_2","String","")
+	f.Data.DataTable.AddColumn("Bom","PL","String","")
+	f.Data.DataTable.AddColumn("Bom","Description","String","")
+	f.Data.DataTable.AddColumn("Bom","Matl_Cost","Float",0)
+	'Add fields
+	f.Data.DataTable.AddColumn("Bom","Location","String","")
+	f.Data.DataTable.AddColumn("Bom","Bin","String","")
+	f.Data.DataTable.AddColumn("Bom","AMt_Price","Float",0)
+	f.Data.DataTable.AddColumn("Bom","UM_PURCHASING","String","")
+	f.Data.DataTable.AddColumn("Bom","TIME_MATERIAL_LEAD","Long",0)
+	f.Data.DataTable.AddColumn("Bom","Qty_Order","Float",0)
+	f.Data.DataTable.AddColumn("Bom","Code_Sort","String","")
+	f.Data.DataTable.AddColumn("Bom","Vendor_Sort","String","")
+	f.Data.DataTable.AddColumn("Bom","Qty_ReOrder","Float",0)
+	f.Data.DataTable.AddColumn("Bom","FACTOR_CONVERSION","Float",0)
+	f.Data.DataTable.AddColumn("Bom","Flag_Lot","String","Y")
+	f.Data.DataTable.AddColumn("Bom","REQUIRES_INSP","String","")
+	f.Data.DataTable.AddColumn("Bom","AUTO_LOT_NUM","String","")
+	f.Data.DataTable.AddColumn("Bom","Stock_Bin","String","")	
+	'Add Select and PartExist column
+	f.Data.DataTable.AddColumn("Bom","SelectRow","Boolean",False)
+	f.Data.DataTable.AddColumn("Bom","PartExist","String","")	
+	
+	'Create Dataview of BOM table
+	f.Data.DataView.Create("Bom","BomDV")
+	
+	'Validate before move on
+	F.Intrinsic.Control.If(V.DataTable.Bom.RowCount,=,0)
+		f.Intrinsic.UI.Msgbox("Bom does not exist.","Invalid Input")
+		f.Intrinsic.Control.ExitSub
+	F.Intrinsic.Control.EndIf
+	
+	'1/Set top Parent value in the first row
+	v.Local.sPart.Set(v.DataTable.Bom(0).Parent!FieldValString)
+	F.Intrinsic.Control.IIF(v.dictionary.BomDescDict![v.Local.sPart],<>,"",v.dictionary.BomDescDict![v.Local.sPart],v.dictionary.InvDescDict![v.Local.sPart],V.Local.sDescription)
+	F.Intrinsic.Control.IIF(v.dictionary.UMInvDict![v.Local.sPart],<>,"",v.dictionary.UMInvDict![v.Local.sPart],v.DataTable.Bom(0).Bom_UM!FieldValString,v.Local.sUM_Inventory)
+	F.Intrinsic.Control.IIF(v.dictionary.Matl_CostDict![v.Local.sPart],<>,0,v.dictionary.Matl_CostDict![v.Local.sPart],v.DataTable.Bom(0).Matl_Cost!FieldValString,v.Local.sMatl_Cost)	
+	f.Data.DataTable.SetValue("Bom",0,"Level",0,"Position",1,"Description",v.Local.sDescription,"UM_Inventory",v.Local.sUM_Inventory)
+	'Add root node	
+	f.Intrinsic.String.Build("{0}|~|1",v.Local.sPart.Trim,v.Local.sRootNode)
+	f.Data.DataTable.SetValue("Bom",0,"Node",v.Local.sRootNode,"Quantity_6",1,"Quantity",1)
+	v.Local.sHold.Set(v.Local.sPart)
+	f.Intrinsic.String.Build("{0}{1}",v.Local.sPart,v.Dictionary.ExistTreeDict![v.Local.sHold],v.Local.sDisplayPart)
+	Gui.Form.trvBom.addtreenode("",4,v.Local.sRootNode,v.Local.sDisplayPart)	
+	Gui.Form.trvBom.SetNodeProps(v.Local.sRootNode,False,"",True)
+		
+	'2/Add first level node
+	f.Intrinsic.Control.For(v.Local.iCnt,1,v.DataTable.Bom.RowCount--,1)
+		v.Local.sPart.Set(v.DataTable.Bom(v.Local.iCnt).Part!FieldValString)
+		'Postion
+		f.Intrinsic.Math.Add(v.Local.iCnt,1,v.Local.iHold)	
+		'NodeToAdd
+		f.Intrinsic.String.Build("{0}|~|{1}",v.Local.sPart.Trim,v.Local.iHold,v.Local.sNodeToAdd)
+		'Descripition		
+		F.Intrinsic.Control.IIF(v.dictionary.BomDescDict![v.Local.sPart],<>,"",v.dictionary.BomDescDict![v.Local.sPart],v.dictionary.InvDescDict![v.Local.sPart],V.Local.sDescription)
+		'UM_Inventory
+		F.Intrinsic.Control.IIF(v.dictionary.UMInvDict![v.Local.sPart],<>,"",v.dictionary.UMInvDict![v.Local.sPart],v.DataTable.Bom(v.Local.iCnt).Bom_UM!FieldValString,v.Local.sUM_Inventory)
+		'Matl cost
+		F.Intrinsic.Control.IIF(v.dictionary.Matl_CostDict![v.Local.sPart],<>,0,v.dictionary.Matl_CostDict![v.Local.sPart],v.DataTable.Bom(v.Local.iCnt).Matl_Cost!FieldValString,v.Local.sMatl_Cost)
+		'SetValue data table
+		f.Data.DataTable.SetValue("Bom",v.Local.iCnt,"Position",v.Local.iHold,"Node",v.Local.sNodeToAdd,"Description",v.Local.sDescription,"UM_Inventory",v.Local.sUM_Inventory,"Matl_Cost",v.Local.sMatl_Cost)
+		'Build Node
+		f.Intrinsic.String.Build("{0}{1}",v.Local.sPart,v.Dictionary.ExistTreeDict![v.Local.sPart],v.Local.sDisplayPart)
+		Gui.Form.trvBom.addtreenode(v.Local.sRootNode,4,v.Local.sNodeToAdd,v.Local.sDisplayPart)		
+		Gui.Form.trvBom.SetNodeProps(v.Local.sNodeToAdd,False,"",True)
+	f.Intrinsic.Control.Next(v.Local.iCnt)	
+
+	'3/Add following row/nodes
+	v.Local.iLevel.Set(1)		
+	f.Intrinsic.Control.DoUntil(v.Local.bStop,"=",True)				
+
+		'Filter Level of Bom
+		f.Intrinsic.String.Build("Level = {0}",v.Local.iLevel,v.Local.sFilter)
+		f.Data.DataView.SetFilter("Bom","BomDV",v.Local.sFilter)
+		f.Intrinsic.Math.Sub(V.DataView.Bom!BomDV.RowCount,1,v.Local.iChildUbound)
+		
+		f.Intrinsic.Math.Add(v.Local.iLevel,1,v.Local.iNextLevel)
+		v.Local.bStop.Set("True")	
+		
+		f.Intrinsic.Control.For(v.Local.iChild,0,v.Local.iChildUbound,1)
+			'Set Parent Node
+			V.Local.sParentNode.Set(V.DataView.Bom!BomDV(v.Local.iChild).Node!FieldValString)
+			f.Intrinsic.String.build("[Parent] = '{0}'",V.DataView.Bom!BomDV(v.Local.iChild).Part!FieldValString,v.Local.sFilter)
+			f.Data.DataView.SetFilter("AllBoms","AllBomsDV",v.Local.sFilter)
+			f.Data.DataView.SetSort("AllBoms","AllBomsDV","Sequence_Bom")
+			
+			f.Intrinsic.Control.If(v.DataView.AllBoms!AllBomsDV.Rowcount,>,0)
+				v.local.bStop.Set("False")
+			f.Intrinsic.Control.EndIf
+			v.Local.iNextPosition.Set(0)	
+			
+			'Move to below Parent
+			f.Intrinsic.String.Build("Node = '{0}'",v.Local.sParentNode,v.Local.sFilter)
+			f.Data.DataTable.Select("Bom",v.Local.sFilter,v.Local.iIndexToInsert)
+			
+			f.Intrinsic.Control.For(v.local.iS,1,v.DataView.AllBoms!AllBomsDV.Rowcount--,1)
+				f.Intrinsic.Math.Add(v.Local.iIndexToInsert,1,v.Local.iIndexToInsert)
+				f.Intrinsic.Math.Add(v.Local.iNextPosition,1,v.Local.iNextPosition)				
+				'Prepare to add row
+				f.Intrinsic.String.Build("{0}.{1}",V.DataView.Bom!BomDV(v.Local.iChild).Position!FieldValString,v.Local.iNextPosition,v.Local.sPosition)
+				F.Intrinsic.Math.Mult(V.DataView.Bom!BomDV(v.Local.iChild).Quantity!FieldValString,v.DataView.AllBoms!AllBomsDV(v.Local.iS).Quantity!FieldValString,v.Local.fQty)					
+				v.Local.sParent.Set(v.DataView.AllBoms!AllBomsDV(v.Local.iS).Parent!FieldValString)
+				v.Local.sPart.Set(v.DataView.AllBoms!AllBomsDV(v.Local.iS).Part!FieldValString)
+				v.Local.sCost.Set(v.DataView.AllBoms!AllBomsDV(v.Local.iS).Cost!FieldValString)
+				v.Local.sBom_UM.Set(v.DataView.AllBoms!AllBomsDV(v.Local.iS).Bom_UM!FieldValString)				
+				v.Local.sQty6.Set(v.DataView.AllBoms!AllBomsDV(v.Local.iS).Quantity_6!FieldValString)
+				v.Local.sSource.Set(v.DataView.AllBoms!AllBomsDV(v.Local.iS).Source!FieldValString)
+				v.Local.sSource2.Set(v.DataView.AllBoms!AllBomsDV(v.Local.iS).Source2!FieldValString)
+				'Description
+				F.Intrinsic.Control.IIF(v.dictionary.BomDescDict![v.Local.sPart],<>,"",v.dictionary.BomDescDict![v.Local.sPart],v.dictionary.InvDescDict![v.Local.sPart],V.Local.sDescription)
+				'UM_Inventory
+				F.Intrinsic.Control.IIF(v.dictionary.UMInvDict![v.Local.sPart],<>,"",v.dictionary.UMInvDict![v.Local.sPart],v.Local.sBom_UM,v.Local.sUM_Inventory)
+				'Matl Cost
+				F.Intrinsic.Control.IIF(v.dictionary.Matl_CostDict![v.Local.sPart],<>,0,v.dictionary.Matl_CostDict![v.Local.sPart],0,v.Local.sMatl_Cost)
+				'Add Node
+				f.Intrinsic.String.Build("{0}|~|{1}",v.Local.sPart.Trim,v.Local.sPosition,v.Local.sNodeToAdd)
+				f.Intrinsic.String.Build("{0}{1}",v.Local.sPart,v.Dictionary.ExistTreeDict![v.Local.sPart],v.Local.sDisplayPart)
+				Gui.Form.trvBom.AddTreeNode(v.Local.sParentNode,4,v.Local.sNodeToAdd,v.Local.sDisplayPart)
+				Gui.Form.trvBom.SetNodeProps(v.Local.sNodeToAdd,False,"",True)
+				'Add row
+				f.Data.DataTable.AddRow("Bom","Parent",v.Local.sParent,"PART",v.Local.sPart,"Description",v.Local.sDescription,"Quantity",v.Local.fQty,"Cost",v.Local.sCost,"Bom_UM",v.Local.sBom_UM,"Quantity_6",v.Local.sQty6,"Source",v.Local.sSource,"Source2",v.Local.sSource2,"Level",v.Local.iNextLevel,"Position",v.Local.sPosition,"Node",v.Local.sNodeToAdd,"UM_Inventory",v.Local.sUM_Inventory,"Matl_Cost",v.Local.sMatl_Cost)
+				'Move row to below parent	
+				F.Data.DataTable.MoveRow("Bom",v.DataTable.Bom.RowCount--,v.Local.iIndexToInsert)					
+			f.Intrinsic.Control.Next(v.local.iS)
+			
+		f.Intrinsic.Control.Next(v.Local.iChild)
+		
+		f.Intrinsic.Math.Add(v.Local.iLevel,1,v.Local.iLevel)		
+	f.Intrinsic.Control.Loop
+				
+	'Process LevelChar (for example, if level = 5, it will have 4 _ + '5' + '___' : '____5___')		
+	f.Data.DataTable.AddExpressionColumn("Bom","LevelChar","String","SubString((SubString('________',1,[Level]) + Convert([Level],'System.String') + '________'),2,8)")
+
+	'Set Seq and Rec_Seq for Bom
+	F.Data.DataTable.SetSeries("Bom","Seq",0,1)		
+	f.Data.DataTable.AddExpressionColumn("Bom","Rec_Seq","String","SubString((Convert((1000000 + [Seq]),'System.String')),2,6)")
+
+	'Add columns to display parts in a hierachical way		
+	f.Data.DataTable.Compute("Bom","Max([Level])","",v.Global.iMaxLevel)		
+	f.Intrinsic.Control.For(v.Local.iCnt,0,v.Global.iMaxLevel,1)
+		F.Intrinsic.String.Build("Level_{0}",v.Local.iCnt,v.Local.sColumn)
+		f.Intrinsic.Control.If(v.Local.iCnt,=,0)
+			v.Global.sLevelColumns.Set(v.Local.sColumn)
+			f.Data.DataTable.AddColumn("Bom",v.Local.sColumn,"String")
+			f.Data.DataTable.SetValue("Bom",0,"Level_0",v.DataTable.Bom(0).Parent!FieldValString,"Part",v.DataTable.Bom(0).Parent!FieldValString)
+		f.Intrinsic.Control.Else
+			f.Intrinsic.String.Build("{0},{1}",v.Global.sLevelColumns,v.Local.sColumn,v.Global.sLevelColumns)
+			f.Data.DataTable.AddColumn("Bom",v.Local.sColumn,"String")
+		f.Intrinsic.Control.EndIf		
+	f.Intrinsic.Control.Next(v.Local.iCnt)
+	'Set value to the level cels
+	f.Intrinsic.Control.For(v.Local.iCnt,1,v.DataTable.Bom.RowCount--,1)
+		f.Intrinsic.String.Build("Level_{0}",v.DataTable.Bom(v.local.iCnt).Level!FieldValString,v.Local.sColumn)
+		f.Data.DataTable.SetValue("Bom",v.Local.iCnt,v.Local.sColumn,v.DataTable.Bom(v.local.iCnt).Part!FieldValString)					
+	f.Intrinsic.Control.Next(v.Local.iCnt)	
+	
+	f.Data.DataTable.Acceptchanges("Bom")
+	'Fill from Dictionary
+	f.Data.DataTable.FillFromDictionary("Bom","ExistDict","Part","PartExist")
+	f.Data.DataTable.FillFromDictionary("Bom","Memo_1Dict","Part","Memo_1")
+	f.Data.DataTable.FillFromDictionary("Bom","Memo_2Dict","Part","Memo_2")
+	f.Data.DataTable.FillFromDictionary("Bom","BinDict","Part","Bin")
+	f.Data.DataTable.FillFromDictionary("Bom","Code_SortDict","Part","Code_Sort")	
+	f.Data.DataTable.FillFromDictionary("Bom","UM_PurchasingDict","Part","UM_Purchasing")
+	f.Data.DataTable.FillFromDictionary("Bom","Stock_BinDict","Part","Stock_Bin")
+	f.Data.DataTable.FillFromDictionary("Bom","Factor_ConversionDict","Part","Factor_Conversion")
+	f.Data.DataTable.FillFromDictionary("Bom","Auto_Lot_NumDict","Part","Auto_Lot_Num")
+	f.Data.DataTable.FillFromDictionary("Bom","REQUIRES_INSPDict","Part","REQUIRES_INSP")
+	f.Data.DataTable.FillFromDictionary("Bom","AMT_PriceDict","Part","AMT_Price")
+	f.Data.DataTable.FillFromDictionary("Bom","Qty_OrderDict","Part","Qty_Order")
+	f.Data.DataTable.FillFromDictionary("Bom","Qty_ReorderDict","Part","Qty_Reorder")
+	f.Data.DataTable.FillFromDictionary("Bom","TIME_MATERIAL_LEADDict","Part","TIME_MATERIAL_LEAD")
+	'As Dakotaland wants to populate all Flag_lot to Y, we will not use this
+	'f.Data.DataTable.FillFromDictionary("Bom","Flag_LotDict","Part","Flag_Lot")
+	f.Data.DataTable.FillFromDictionary("Bom","PRODUCT_LINEDict","Part","PL")
+	f.Data.DataTable.FillFromDictionary("Bom","PartLocDict","Part","Location")
+	f.Data.DataTable.FillFromDictionary("Bom","Vendor_SortDict","Part","Vendor_Sort")
+	'Add Rev column
+	f.Data.DataTable.AddExpressionColumn("Bom","Rev","String","SubString([Part],18,3)")
+	
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}Subroutine: {2}{1}Subroutine called from:{6}{1}Error Occurred: {3}{1}Description: {4}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,v.Ambient.SubroutineCalledFrom,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	f.Intrinsic.Control.CallSub("Unload")
+F.Intrinsic.Control.EndTry
+Program.Sub.Explode_Bom.End
+
+Program.Sub.Format_gsBom.Start
+f.Intrinsic.Control.Try
+	v.Local.sError.Declare
+	v.Local.sVisibleIndexColumn.Declare
+	v.Local.sLevelColumn.Declare
+	v.Local.iCnt.Declare
+	v.Local.sHold.Declare
+
+	'General format for the grid
+	gui.Form.gsBom.SetGridViewProperty("GVMain","MultiSelect",False)
+	gui.Form.gsBom.SetGridViewProperty("GVMain","AllowSort",True)
+	gui.Form.gsBom.SetGridViewProperty("GVMain","AllowFilter",True)
+	gui.Form.gsBom.SetGridViewProperty("GVMain","OptionsFindAlwaysVisible",True)
+	gui.Form.gsBom.SetGridViewProperty("GVMain","EnableAppearanceOddRow",False)
+	gui.Form.gsBom.SetGridViewProperty("GVMain","OptionsViewShowAutoFilterRow",True)
+	gui.Form.gsBom.SetGridViewProperty("GVMain","AllowColumnResizing",True)
+	gui.Form.gsBom.SetGridViewProperty("GVMain","OptionsViewColumnAutoWidth",False)	
+	gui.Form.gsBom.SetGridViewProperty("GVMain","ColumnPanelRowHeight","50")	
+	'Build dynamic Visible index
+	f.Intrinsic.Control.If(v.Global.sLevelColumns,<>,"")
+		f.Intrinsic.String.Build("SelectRow,PartExist,Rec_Seq,Position,Level,LevelChar,{0},Parent,Part,Rev,Description,Quantity,Quantity_6,Cost,Memo_1,Memo_2,Drawing,Bom_UM,UM_Inventory,Location,PL,Source,Code_Sort,Vendor_Sort,UM_PURCHASING,FACTOR_CONVERSION,Matl_Cost,AMt_Price,TIME_MATERIAL_LEAD,Qty_Order,QTY_REORDER,Bin,Stock_Bin,AUTO_LOT_NUM,REQUIRES_INSP,Flag_Lot,Source2,Seq,Node",v.Global.sLevelColumns,v.Local.sVisibleIndexColumn)
+	f.Intrinsic.Control.Else
+		v.Local.sVisibleIndexColumn.Set("SelectRow,PartExist,Rec_Seq,Position,Level,LevelChar,Parent,Part,Rev,Description,Quantity,Quantity_6,Cost,Memo_1,Memo_2,Drawing,Bom_UM,UM_Inventory,Location,PL,Source,Code_Sort,Vendor_Sort,UM_PURCHASING,FACTOR_CONVERSION,Matl_Cost,AMt_Price,TIME_MATERIAL_LEAD,Qty_Order,QTY_REORDER,Bin,Stock_Bin,AUTO_LOT_NUM,REQUIRES_INSP,Flag_Lot,Source2,Seq,Node")
+	f.Intrinsic.Control.EndIf
+	'Color 2 sections: Bom and Inventory	
+	v.Global.sBomColumns.Set("Description,Quantity,Quantity_6,Cost,Bom_UM,Memo_1,Memo_2,Drawing,Source2,Seq,Node")
+	v.Global.sInvColumns.Set("Location,PL,Source,Code_Sort,Vendor_Sort,UM_Inventory,UM_PURCHASING,Matl_Cost,AMt_Price,TIME_MATERIAL_LEAD,Qty_Order,QTY_REORDER,Bin,Stock_Bin,AUTO_LOT_NUM,REQUIRES_INSP")	
+	f.Intrinsic.Control.CallSub(FormatBulk,"GS","gsBom","GV","GVMain","sInputColumns",v.Global.sBomColumns,"sProperty","CellBackColor","sColor","FloralWhite")
+	f.Intrinsic.Control.CallSub(FormatBulk,"GS","gsBom","GV","GVMain","sInputColumns",v.Global.sInvColumns,"sProperty","CellBackColor","sColor","Lavender")
+	f.Intrinsic.Control.CallSub(FormatBulk,"GS","gsBom","GV","GVMain","sInputColumns","Flag_Lot","sProperty","CellBackColor","sColor","LightBlue") 
+	f.Intrinsic.Control.CallSub(FormatBulk,"GS","gsBom","GV","GVMain","sInputColumns","Part","sProperty","CellForeColor","sColor","Blue") 
+	'Visible Index
+	f.Intrinsic.Control.CallSub(FormatBulk,"GS","gsBom","GV","GVMain","sInputColumns",v.Local.sVisibleIndexColumn,"sProperty","VisibleIndex")
+	'HeaderFontBold
+	f.Intrinsic.Control.CallSub(FormatBulk,"GS","gsBom","GV","GVMain","sInputColumns",v.Local.sVisibleIndexColumn,"sProperty","HeaderFontBold")
+	'HeaderWordWrap
+	f.Intrinsic.Control.CallSub(FormatBulk,"GS","gsBom","GV","GVMain","sInputColumns",v.Local.sVisibleIndexColumn,"sProperty","HeaderWordWrap")	
+	'HeaderAllign_Top
+	f.Intrinsic.Control.CallSub(FormatBulk,"GS","gsBom","GV","GVMain","sInputColumns",v.Local.sVisibleIndexColumn,"sProperty","HeaderAllign_Top")	
+	'HeaderAllign_Far
+	f.Intrinsic.Control.CallSub(FormatBulk,"GS","gsBom","GV","GVMain","sInputColumns","Quantity,Qty_Order,Qty_Reorder,Cost,Matl_Cost,Amt_Price,TIME_MATERIAL_LEAD,Factor_Conversion","sProperty","HeaderAllign_Far")
+	'HeaderAllign_Center
+	f.Intrinsic.Control.CallSub(FormatBulk,"GS","gsBom","GV","GVMain","sInputColumns","Rec_Seq,SelectRow,PartExist,Level,Source,AUTO_LOT_NUM,REQUIRES_INSP,Bom_UM,UM_Inventory,UM_PURCHASING,Location,PL,Flag_lot","sProperty","HeaderAllign_Center")
+	'CellHAlignment_Center
+	f.Intrinsic.Control.CallSub(FormatBulk,"GS","gsBom","GV","GVMain","sInputColumns","Rec_Seq,SelectRow,PartExist,Level,Source,AUTO_LOT_NUM,REQUIRES_INSP,Bom_UM,UM_Inventory,UM_PURCHASING,Location,PL,Flag_lot","sProperty","CellHAlignment_Center")
+	'Invisible
+	f.Intrinsic.Control.CallSub(FormatBulk,"GS","gsBom","GV","GVMain","sInputColumns","Position,LevelChar,Quantity_6,Source2,Seq,Node,Sequence_Bom","sProperty","Invisible")
+	'FixedColumn_Left
+	f.Intrinsic.Control.CallSub(FormatBulk,"GS","gsBom","GV","GVMain","sInputColumns","SelectRow,PartExist,Rec_Seq,Parent,Part,Level,Position,LevelChar,Rev","sProperty","FixedColumn_Left")
+	'Caption	
+	f.Intrinsic.Control.CallSub(FormatBulk,"GS","gsBom","GV","GVMain","sInputColumns","SelectRow@Select,PartExist@Exist,Rec_Seq@Seq,Seq@IntSeq,Parent@Parent,Part@Part,LevelChar@Level Indent,Bom_UM@Bom UM,Source@Source,Quantity@Quantity,Quantity_6@Alt Qty,Sequence_Bom@Parent Level 1 Seq,Cost@Cost,Drawing@Drawing,Stock_Bin@Stocking Bin,AUTO_LOT_NUM@Auto Lot Recv,REQUIRES_INSP@Req. Insp.,UM_PURCHASING@Purch. UM,FACTOR_CONVERSION@Purch. Conver.,Flag_Lot@Lot Bin,Memo_1@Memo 1,Memo_2@Memo 2,Code_Sort@Sort Code,AMt_Price@*List Price,TIME_MATERIAL_LEAD@Lead Time,Qty_Order@Order Qty,QTY_REORDER@Reorder Qty,Location@*Loc,PL@*PL,UM_Inventory@*Inv UM,Vendor_Sort@Vendor Sort,Matl_Cost@Matl Cost","sProperty","Caption")	
+	'Width and Caption for Level column
+	f.Intrinsic.Control.If(v.Global.sLevelColumns,<>,"")		
+		f.Intrinsic.String.Split(v.Global.sLevelColumns,",",v.Local.sLevelColumn)
+		f.Intrinsic.Control.For(v.Local.iCnt,0,v.Local.sLevelColumn.UBound,1)
+			f.Intrinsic.String.Replace(v.Local.sLevelColumn(v.Local.iCnt),"_"," ",v.Local.sHold)
+			gui.Form.gsBom.SetColumnProperty("GVMain",v.Local.sLevelColumn(v.Local.iCnt),"Caption",v.Local.sHold)
+		f.Intrinsic.Control.Next(v.Local.iCnt)	
+		'FixedColumn_Left
+		f.Intrinsic.Control.CallSub(FormatBulk,"GS","gsBom","GV","GVMain","sInputColumns",v.Global.sLevelColumns,"sProperty","FixedColumn_Left")
+		'For_RowCell_Click
+		f.Intrinsic.Control.CallSub(FormatBulk,"GS","gsBom","GV","GVMain","sInputColumns",v.Global.sLevelColumns,"sProperty","For_RowCell_Click")
+	f.Intrinsic.Control.EndIf
+	'More Width
+	f.Intrinsic.Control.CallSub(FormatBulk,"GS","gsBom","GV","GVMain","sInputColumns","Rev,Location","sProperty","Width","sWidth","35")
+	f.Intrinsic.Control.CallSub(FormatBulk,"GS","gsBom","GV","GVMain","sInputColumns","PartExist,Level,Location,PL,Bom_UM,UM_Inventory,UM_PURCHASING,Flag_Lot,AUTO_LOT_NUM,REQUIRES_INSP","sProperty","Width","sWidth","45")
+	f.Intrinsic.Control.CallSub(FormatBulk,"GS","gsBom","GV","GVMain","sInputColumns","SelectRow,Source","sProperty","Width","sWidth","55")
+	f.Intrinsic.Control.CallSub(FormatBulk,"GS","gsBom","GV","GVMain","sInputColumns","Rec_Seq,Position,LevelChar,Code_Sort,Vendor_Sort,Stock_Bin,Bin","sProperty","Width","sWidth","65")
+	f.Intrinsic.Control.CallSub(FormatBulk,"GS","gsBom","GV","GVMain","sInputColumns","Quantity,Quantity_6,Cost,AMt_Price,Matl_Cost,Qty_Order,QTY_REORDER","sProperty","Width","sWidth","80")
+	f.Intrinsic.Control.CallSub(FormatBulk,"GS","gsBom","GV","GVMain","sInputColumns","Parent,Part","sProperty","Width","sWidth","130")
+	f.Intrinsic.Control.CallSub(FormatBulk,"GS","gsBom","GV","GVMain","sInputColumns","Description","sProperty","Width","sWidth","180")
+	'For_CellValue_Changed
+	f.Intrinsic.Control.If(v.Screen.Form!chkEditable.Value,=,1)
+		f.Intrinsic.Control.CallSub(FormatBulk,"GS","gsBom","GV","GVMain","sInputColumns","Drawing,SelectRow,Location,Source,PL,UM_Inventory,Bin,Code_Sort,Vendor_Sort,Matl_Cost,UM_PURCHASING,Factor_Conversion,Stock_Bin,AUTO_LOT_NUM,REQUIRES_INSP,AMT_Price,TIME_MATERIAL_LEAD,Qty_Order,Qty_ReOrder","sProperty","For_CellValue_Changed")		
+	f.Intrinsic.Control.EndIf
+	'For_RowCell_Click
+	f.Intrinsic.Control.CallSub(FormatBulk,"GS","gsBom","GV","GVMain","sInputColumns","PartExist,Rec_Seq,Position,Level,LevelChar,Parent,Part,Description,Rev","sProperty","For_RowCell_Click")
+	'Color tag
+	gui.Form.gsBom.AddStyleFormatCondition("GVMain","PartExist","tagPartExistYes","equal","Yes")
+	gui.Form.gsBom.SetStyleFormatConditionProperty("GVMain","PartExist","tagPartExistYes","forecolor","Blue")
+	gui.Form.gsBom.AddStyleFormatCondition("GVMain","PartExist","tagPartExistNo","equal","No")
+	gui.Form.gsBom.SetStyleFormatConditionProperty("GVMain","PartExist","tagPartExistNo","forecolor","Red")
+	gui.Form.gsBom.AddStyleFormatCondition("GVMain","PartExist","tagPartExistNoBackColor","equal","No")
+	gui.Form.gsBom.SetStyleFormatConditionProperty("GVMain","PartExist","tagPartExistNoBackColor","Backcolor","Bisque")		
+	'Dropdown PL
+	f.Intrinsic.Control.If(v.Global.sPLRange,<>,"")
+		Gui.Form.gsBom.ColumnEdit("GVMain","PL","Combobox",v.Global.sPLRange)
+	f.Intrinsic.Control.EndIf
+	'Dropdown UM_Inventory Range,UM_Purchasing Range	
+	f.Intrinsic.Control.If(v.Global.sUMRange,<>,"")
+		Gui.Form.gsBom.ColumnEdit("GVMain","UM_Inventory","Combobox",v.Global.sUMRange)
+		Gui.Form.gsBom.ColumnEdit("GVMain","UM_Purchasing","Combobox",v.Global.sUMRange)
+	f.Intrinsic.Control.EndIf
+	'Dropdown Bin Range, Stocking Bin
+	f.Intrinsic.Control.If(v.Global.sBinRange,<>,"")
+		Gui.Form.gsBom.ColumnEdit("GVMain","Bin","Combobox",v.Global.sBinRange)
+		Gui.Form.gsBom.ColumnEdit("GVMain","Stock_Bin","Combobox",v.Global.sBinRange)
+	f.Intrinsic.Control.EndIf
+	'Dropdown Cod_Sort Range
+	f.Intrinsic.Control.If(v.Global.sCode_SortRange,<>,"")
+		Gui.Form.gsBom.ColumnEdit("GVMain","Code_Sort","Combobox",v.Global.sCode_SortRange)
+	f.Intrinsic.Control.EndIf
+	'Location
+	f.Intrinsic.Control.If(v.Global.sLocationRange.Trim,<>,"")
+		Gui.Form.gsBom.ColumnEdit("GVMain","Location","Combobox",v.Global.sLocationRange)
+	f.Intrinsic.Control.EndIf	
+	'Auto_Lot_Num
+	Gui.Form.gsBom.ColumnEdit("GVMain","Auto_Lot_Num","Combobox","Y*!*")
+	'Requires Inspection
+	Gui.Form.gsBom.ColumnEdit("GVMain","REQUIRES_INSP","Combobox","Y*!*")
+	'Source
+	Gui.Form.gsBom.ColumnEdit("GVMain","Source","Combobox","*!*MS*!*MJ*!*PS*!*PJ*!*CS*!*CJ")
+	'Vendor Sort
+	'Dropdown Cod_Sort Range
+	f.Intrinsic.Control.If(v.Global.sVendorRange,<>,"")
+		Gui.Form.gsBom.ColumnEdit("GVMain","Vendor_Sort","Combobox",v.Global.sVendorRange)
+	f.Intrinsic.Control.EndIf	
+	
+	f.Intrinsic.Control.CallSub("cmdExpandColumn_Click")
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}Subroutine: {2}{1}Subroutine called from:{6}{1}Error Occurred: {3}{1}Description: {4}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,v.Ambient.SubroutineCalledFrom,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	f.Intrinsic.Control.CallSub("Unload")
+F.Intrinsic.Control.EndTry
+Program.Sub.Format_gsBom.End
+
+Program.Sub.Set_Format_By_Option.Start
+F.Intrinsic.Control.Try
+	v.Local.sError.Declare
+	v.Local.sToBeDisplayedColumnName.Declare
+	v.Local.sDisplayOption.Declare
+	v.Local.iCnt.Declare
+	v.Local.bBool.Declare
+	v.Local.sDropdownName.Declare
+	v.Local.sDropdownControl.Declare
+	v.Local.sDecimal_Value.Declare
+	
+	'A/Display and Width
+	'Level Width
+	f.Intrinsic.Control.CallSub(FormatBulk,"GS","gsBom","GV","GVMain","sInputColumns",v.Global.sLevelColumns,"sProperty","Width","sWidth",v.Screen.Form!txtLevelWidth.Text.Trim)
+	'Display Level Columns
+	f.Intrinsic.Control.If(v.Screen.Form!chkDisplayLevelCols.Value,=,0,and,v.Global.sLevelColumns,<>,"")
+		f.Intrinsic.Control.CallSub(FormatBulk,"GS","gsBom","GV","GVMain","sInputColumns",v.Global.sLevelColumns,"sProperty","Invisible")
+	f.Intrinsic.Control.EndIf
+	'Display other columns		
+	f.Intrinsic.String.Split(v.Global.sToBeDisplayedColumnNames,",",v.Local.sToBeDisplayedColumnName)
+	f.Intrinsic.Control.For(v.Local.iCnt,0,v.Local.sToBeDisplayedColumnName.UBound,1)
+		f.Intrinsic.String.Build("chkDisplay{0}",v.Local.sToBeDisplayedColumnName(v.Local.iCnt),v.Local.sDisplayOption)
+		f.Intrinsic.Control.If(v.Screen.Form![v.Local.sDisplayOption].Value,=,1)
+			v.Local.bBool.Set(True)
+		f.Intrinsic.Control.Else
+			v.Local.bBool.Set(False)
+		f.Intrinsic.Control.EndIf
+		gui.Form.gsBom.SetColumnProperty("GVMain",v.Local.sToBeDisplayedColumnName(v.Local.iCnt),"Visible",v.Local.bBool)
+	f.Intrinsic.Control.Next(v.Local.iCnt)
+	
+	'B/Decimal Option
+	'Generate Dropdown values for Decimal Options
+	f.Intrinsic.String.Split(v.Global.sToConfigureDecimalColumnNames,",",v.Local.sDropdownName)	
+	f.Intrinsic.Control.For(v.Local.iCnt,0,v.Local.sDropdownName.UBound,1)
+		f.Intrinsic.String.build("ddl{0}",v.Local.sDropdownName(v.Local.iCnt),v.Local.sDropdownControl)
+		f.Intrinsic.String.Build("Decimal_{0}",v.Screen.Form![v.Local.sDropdownControl].Text,v.Local.sDecimal_Value)		
+		f.Intrinsic.Control.CallSub(FormatBulk,"GS","gsBom","GV","GVMain","sInputColumns",v.Local.sDropdownName(v.Local.iCnt),"sProperty","Decimal","sDecimal_Value",v.Local.sDecimal_Value)		
+	f.Intrinsic.Control.Next(v.Local.iCnt)
+	
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}Subroutine: {2}{1}Subroutine called from:{6}{1}Error Occurred: {3}{1}Description: {4}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,v.Ambient.SubroutineCalledFrom,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	f.Intrinsic.Control.CallSub("Unload")
+F.Intrinsic.Control.EndTry
+Program.Sub.Set_Format_By_Option.End
+
+Program.Sub.trvBom_NodeClick.Start
+f.Intrinsic.Control.Try
+	v.Local.sError.Declare	
+	V.Local.sNode.Declare
+	V.Local.sParent.Declare
+	v.Local.sRet.Declare
+	v.Local.sFilter.Declare
+	v.Local.sRowToFocus.Declare
+	
+	V.Local.sNode.Set(V.Screen.Form!trvBom.SelectedItemKey)
+	
+	'Focus Row of the Grid
+	f.Intrinsic.String.Build("Node = '{0}'",v.Local.sNode,v.Local.sFilter)
+	F.Data.DataView.SetFilter("Bom","BomDV",v.Local.sFilter)
+	f.Intrinsic.Control.If(v.DataView.Bom!BomDV.RowCount,>,0)
+		v.Local.sRowToFocus.Set(v.DataView.Bom!BomDV(0).Seq!FieldValString)
+		Gui.Form.gsBom.FocusCell("GVMain",v.Local.sRowToFocus,2)
+	f.Intrinsic.Control.EndIf	
+	'Reset previous bold to non
+	f.Intrinsic.Control.If(v.Screen.Form!txtBoldNode.Text.Trim,<>,"")
+		Gui.Form.trvBom.SetNodeProps(v.Screen.Form!txtBoldNode.Text,False,"",True)
+	f.Intrinsic.Control.EndIf		
+	'Set the current node bold
+	Gui.Form.trvBom.SetNodeProps(v.Local.sNode,True,"",True)	
+	'Set the Node for the next use
+	gui.Form.txtBoldNode.Text(v.Local.sNode)
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}Subroutine: {2}{1}Subroutine called from:{6}{1}Error Occurred: {3}{1}Description: {4}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,v.Ambient.SubroutineCalledFrom,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	f.Intrinsic.Control.CallSub("Unload")
+F.Intrinsic.Control.EndTry
+Program.Sub.trvBom_NodeClick.End
+
+Program.Sub.FormatBulk.Start
+f.Intrinsic.Control.Try
+	V.Local..BulkDeclareString(sError,sColumns,sHold,sDecimalMask,sDecimal)
+	v.Local..BulkDeclareLong(iCnt)
+	v.Local.sColor.Declare
+	
+	f.Intrinsic.String.Split(v.Args.sInputColumns,",",v.Local.sColumns)
+
+	F.Intrinsic.Control.SelectCase(v.Args.sProperty)
+		
+		F.Intrinsic.Control.Case("MinWidth")
+			f.Intrinsic.Control.For(v.Local.iCnt,0,v.Local.sColumns.UBound,1)
+				gui.Form.[v.Args.GS].SetColumnProperty(v.Args.GV,v.Local.sColumns(v.Local.iCnt),"MinWidth",v.Args.sWidth)
+			f.Intrinsic.Control.Next(v.Local.iCnt)
+			
+		F.Intrinsic.Control.Case("MaxWidth")
+			f.Intrinsic.Control.For(v.Local.iCnt,0,v.Local.sColumns.UBound,1)
+				gui.Form.[v.Args.GS].SetColumnProperty(v.Args.GV,v.Local.sColumns(v.Local.iCnt),"MaxWidth",v.Args.sWidth)				
+			f.Intrinsic.Control.Next(v.Local.iCnt)
+
+		F.Intrinsic.Control.Case("Width")
+			f.Intrinsic.Control.For(v.Local.iCnt,0,v.Local.sColumns.UBound,1)
+				gui.Form.[v.Args.GS].SetColumnProperty(v.Args.GV,v.Local.sColumns(v.Local.iCnt),"Width",v.Args.sWidth)				
+			f.Intrinsic.Control.Next(v.Local.iCnt)
+
+		F.Intrinsic.Control.Case("Invisible")
+			f.Intrinsic.Control.For(v.Local.iCnt,0,v.Local.sColumns.UBound,1)
+				gui.Form.[v.Args.GS].SetColumnProperty(v.Args.GV,v.Local.sColumns(v.Local.iCnt),"Visible",False)				
+			f.Intrinsic.Control.Next(v.Local.iCnt)
+
+		F.Intrinsic.Control.Case("VisibleIndex")
+			f.Intrinsic.Control.For(v.Local.iCnt,0,v.Local.sColumns.UBound,1)
+				gui.Form.[v.Args.GS].SetColumnProperty(v.Args.GV,v.Local.sColumns(v.Local.iCnt),"VisibleIndex",v.Local.iCnt)				
+			f.Intrinsic.Control.Next(v.Local.iCnt)
+
+		F.Intrinsic.Control.Case("Caption")
+			f.Intrinsic.Control.For(v.Local.iCnt,0,v.Local.sColumns.UBound,1)
+				f.Intrinsic.String.Split(v.Local.sColumns(v.Local.iCnt),"@",v.Local.sHold)
+				gui.Form.[v.Args.GS].SetColumnProperty(v.Args.GV,v.Local.sHold(0),"Caption",v.Local.sHold(1))			
+			f.Intrinsic.Control.Next(v.Local.iCnt)				
+
+		F.Intrinsic.Control.Case("HeaderAllign_Far")
+			f.Intrinsic.Control.For(v.Local.iCnt,0,v.Local.sColumns.UBound,1)
+				gui.Form.[v.Args.GS].SetColumnProperty(v.Args.GV,v.Local.sColumns(v.Local.iCnt),"HeaderHAlignment","Far")			
+			f.Intrinsic.Control.Next(v.Local.iCnt)
+
+		F.Intrinsic.Control.Case("HeaderAllign_Center")
+			f.Intrinsic.Control.For(v.Local.iCnt,0,v.Local.sColumns.UBound,1)
+				gui.Form.[v.Args.GS].SetColumnProperty(v.Args.GV,v.Local.sColumns(v.Local.iCnt),"HeaderHAlignment","Center")				
+			f.Intrinsic.Control.Next(v.Local.iCnt)
+
+		F.Intrinsic.Control.Case("HeaderAllign_Top")
+			f.Intrinsic.Control.For(v.Local.iCnt,0,v.Local.sColumns.UBound,1)
+				gui.Form.[v.Args.GS].SetColumnProperty(v.Args.GV,v.Local.sColumns(v.Local.iCnt),"HeaderVAlignment","Top")			
+			f.Intrinsic.Control.Next(v.Local.iCnt)
+
+		F.Intrinsic.Control.Case("HeaderFontBold")	
+			f.Intrinsic.Control.For(v.Local.iCnt,0,v.Local.sColumns.UBound,1)
+				gui.Form.[v.Args.GS].SetColumnProperty(v.Args.GV,v.Local.sColumns(v.Local.iCnt),"HeaderFontBold",True)			
+			f.Intrinsic.Control.Next(v.Local.iCnt)
+
+		F.Intrinsic.Control.Case("HeaderWordWrap")	
+			f.Intrinsic.Control.For(v.Local.iCnt,0,v.Local.sColumns.UBound,1)
+				gui.Form.[v.Args.GS].SetColumnProperty(v.Args.GV,v.Local.sColumns(v.Local.iCnt),"HeaderWordWrap","Wrap")				
+			f.Intrinsic.Control.Next(v.Local.iCnt)
+
+		F.Intrinsic.Control.Case("CellHAlignment_Center")
+			f.Intrinsic.Control.For(v.Local.iCnt,0,v.Local.sColumns.UBound,1)
+				gui.Form.[v.Args.GS].SetColumnProperty(v.Args.GV,v.Local.sColumns(v.Local.iCnt),"CellHAlignment","Center")				
+			f.Intrinsic.Control.Next(v.Local.iCnt)
+
+		F.Intrinsic.Control.Case("CellHAlignment_Far")
+			f.Intrinsic.Control.For(v.Local.iCnt,0,v.Local.sColumns.UBound,1)
+				gui.Form.[v.Args.GS].SetColumnProperty(v.Args.GV,v.Local.sColumns(v.Local.iCnt),"CellHAlignment","Far")			
+			f.Intrinsic.Control.Next(v.Local.iCnt)
+
+		F.Intrinsic.Control.Case("Decimal")		
+			f.Intrinsic.String.Split(v.Args.sDecimal_Value,"_",v.Local.sDecimal)
+			f.Intrinsic.Control.If(v.local.sDecimal(1),=,"0")
+				v.Local.sDecimalMask.Set("###,###,###,##0")
+			f.Intrinsic.Control.Else				
+				f.Intrinsic.String.RPad("","0",v.Local.sDecimal(1),v.Local.sDecimalMask)
+				f.Intrinsic.String.Build("###,###,###,##0.{0}",v.Local.sDecimalMask,v.Local.sDecimalMask)
+			f.Intrinsic.Control.EndIf
+			f.Intrinsic.Control.For(v.Local.iCnt,0,v.Local.sColumns.UBound,1)
+				gui.Form.[v.Args.GS].SetColumnProperty(v.Args.GV,v.Local.sColumns(v.Local.iCnt),"DisplayCustomNumeric",v.Local.sDecimalMask)				
+			f.Intrinsic.Control.Next(v.Local.iCnt)
+			
+		f.Intrinsic.Control.Case("For_CellValue_Changed")
+			f.Intrinsic.Control.For(v.Local.iCnt,0,v.Local.sColumns.UBound,1)
+				gui.Form.[v.Args.GS].SetColumnProperty(v.Args.GV,v.Local.sColumns(v.Local.iCnt),"AllowEdit",True)	
+				gui.Form.[v.Args.GS].SetColumnProperty(v.Args.GV,v.Local.sColumns(v.Local.iCnt),"ReadOnly",False)				
+			f.Intrinsic.Control.Next(v.Local.iCnt)
+
+		f.Intrinsic.Control.Case("For_RowCell_Click")
+			f.Intrinsic.Control.For(v.Local.iCnt,0,v.Local.sColumns.UBound,1)
+				gui.Form.[v.Args.GS].SetColumnProperty(v.Args.GV,v.Local.sColumns(v.Local.iCnt),"AllowEdit",False)	
+				gui.Form.[v.Args.GS].SetColumnProperty(v.Args.GV,v.Local.sColumns(v.Local.iCnt),"ReadOnly",True)				
+			f.Intrinsic.Control.Next(v.Local.iCnt)
+
+		f.Intrinsic.Control.Case("DisplayCustomDatetime")
+			f.Intrinsic.Control.For(v.Local.iCnt,0,v.Local.sColumns.UBound,1)
+				gui.Form.[v.Args.GS].SetColumnProperty(v.Args.GV,v.Local.sColumns(v.Local.iCnt),"DisplayCustomDatetime","d")				
+			f.Intrinsic.Control.Next(v.Local.iCnt)
+
+		f.Intrinsic.Control.Case("SummaryItem")
+			f.Intrinsic.Control.For(v.Local.iCnt,0,v.Local.sColumns.UBound,1)
+				gui.Form.[v.Args.GS].AddSummaryItem(v.Args.GV,v.Local.sColumns(v.Local.iCnt),v.Local.sHold,"Sum","","","n")			
+			f.Intrinsic.Control.Next(v.Local.iCnt)
+			f.Intrinsic.String.Build("Sum_{0}",v.Local.sColumns(v.Local.iCnt),v.Local.sHold)
+
+		f.Intrinsic.Control.Case("FixedColumn_Left")
+			f.Intrinsic.Control.For(v.Local.iCnt,0,v.Local.sColumns.UBound,1)
+				gui.Form.[v.Args.GS].SetColumnProperty(v.Args.GV,v.Local.sColumns(v.Local.iCnt),"Fixed","Left")				
+			f.Intrinsic.Control.Next(v.Local.iCnt)
+
+		F.Intrinsic.Control.Case("CellBackColor")
+			f.Intrinsic.Control.For(v.Local.iCnt,0,v.Local.sColumns.UBound,1)
+				gui.Form.[v.Args.GS].SetColumnProperty(v.Args.GV,v.Local.sColumns(v.Local.iCnt),"CellBackColor",v.Args.sColor)			
+			f.Intrinsic.Control.Next(v.Local.iCnt)
+		
+		F.Intrinsic.Control.Case("CellForeColor")
+			f.Intrinsic.Control.For(v.Local.iCnt,0,v.Local.sColumns.UBound,1)
+				gui.Form.[v.Args.GS].SetColumnProperty(v.Args.GV,v.Local.sColumns(v.Local.iCnt),"CellForeColor",v.Args.sColor)			
+			f.Intrinsic.Control.Next(v.Local.iCnt)	
+
+	F.Intrinsic.Control.EndSelect		
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}GAB Version: {5}}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	f.Intrinsic.Control.CallSub("Unload")
+F.Intrinsic.Control.EndTry
+Program.Sub.FormatBulk.End
+
+Program.Sub.cmdSaveOption_Click.Start
+F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	v.Local.sSQL.Declare
+	v.Local.sRet.Declare	
+	v.Local.iCnt.Declare
+	v.Local.sToBeDisplayedColumnName.Declare
+	v.local.sDisplayOption.Declare
+	v.Local.sDropdownControl.Declare
+	v.Local.sDropdownName.Declare
+
+	'Validate Level Width
+	f.Intrinsic.Control.If(v.Screen.Form!txtLevelWidth.Text.Trim,<,10)
+		f.Intrinsic.UI.Msgbox("Minimum Level Width is 10","Invalid Level Width")
+		gui.Form.txtLevelWidth.SetFocus()
+		f.Intrinsic.Control.ExitSub
+	f.Intrinsic.Control.EndIf
+		
+	f.Intrinsic.UI.InvokeWaitDialog("Saving Options...")
+	
+	'LevelWidth Option
+	f.Intrinsic.String.Build("Select OptionValue from GCG_5417_Option where UserID = '{0}' and OptionName = 'LevelWidth'",v.Global.sUserID,v.Local.sSQL)
+	f.ODBC.Connection!conx.ExecuteAndReturn(v.Local.sSQl,v.Local.sRet)
+	f.Intrinsic.Control.If(v.Local.sRet.Trim,=,"")
+		f.Intrinsic.String.Build("Insert into GCG_5417_Option (UserID,OptionName,OptionValue) values ('{0}','LevelWidth','{1}')",v.Global.sUserID,v.Screen.Form!txtLevelWidth.Text,v.Local.sSQL)
+	f.Intrinsic.Control.Else
+		f.Intrinsic.String.Build("Update GCG_5417_Option set OptionValue =  '{1}' Where UserID = '{0}' and OptionName = 'LevelWidth'",v.Global.sUserID,v.Screen.Form!txtLevelWidth.Text,v.Local.sSQL)
+	f.Intrinsic.Control.EndIf
+	f.ODBC.Connection!conx.Execute(v.Local.sSQL)
+	
+	'ExpandWidth
+	f.Intrinsic.String.Build("Select OptionValue from GCG_5417_Option where UserID = '{0}' and OptionName = 'txtExpandWidth'",v.Global.sUserID,v.Local.sSQL)
+	f.ODBC.Connection!conx.ExecuteAndReturn(v.Local.sSQl,v.Local.sRet)
+	f.Intrinsic.Control.If(v.Local.sRet.Trim,=,"")
+		f.Intrinsic.String.Build("Insert into GCG_5417_Option (UserID,OptionName,OptionValue) values ('{0}','txtExpandWidth','{1}')",v.Global.sUserID,v.Screen.Form!txtExpandWidth.Text,v.Local.sSQL)
+	f.Intrinsic.Control.Else
+		f.Intrinsic.String.Build("Update GCG_5417_Option set OptionValue =  '{1}' Where UserID = '{0}' and OptionName = 'txtExpandWidth'",v.Global.sUserID,v.Screen.Form!txtExpandWidth.Text,v.Local.sSQL)
+	f.Intrinsic.Control.EndIf
+	f.ODBC.Connection!conx.Execute(v.Local.sSQL)
+	
+	'DisplayLevelColumns Option
+	f.Intrinsic.String.Build("Select OptionValue from GCG_5417_Option where UserID = '{0}' and OptionName = 'DisplayLevelColumns'",v.Global.sUserID,v.Local.sSQL)
+	f.ODBC.Connection!conx.ExecuteAndReturn(v.Local.sSQl,v.Local.sRet)
+	f.Intrinsic.Control.If(v.Local.sRet,=,"")
+		f.Intrinsic.String.Build("Insert into GCG_5417_Option (UserID,OptionName,OptionValue) values ('{0}','DisplayLevelColumns','{1}')",v.Global.sUserID,v.Screen.Form!chkDisplayLevelCols.Value,v.Local.sSQL)
+	f.Intrinsic.Control.Else
+		f.Intrinsic.String.Build("Update GCG_5417_Option set OptionValue =  '{1}' Where UserID = '{0}' and OptionName = 'DisplayLevelColumns'",v.Global.sUserID,v.Screen.Form!chkDisplayLevelCols.Value,v.Local.sSQL)
+	f.Intrinsic.Control.EndIf
+	f.ODBC.Connection!conx.Execute(v.Local.sSQL)	
+	
+	'Other display columns
+	f.Intrinsic.String.Split(v.Global.sToBeDisplayedColumnNames,",",v.Local.sToBeDisplayedColumnName)
+	f.Intrinsic.Control.For(v.Local.iCnt,0,v.Local.sToBeDisplayedColumnName.UBound,1)
+		f.Intrinsic.String.Build("chkDisplay{0}",v.Local.sToBeDisplayedColumnName(v.Local.iCnt),v.Local.sDisplayOption)
+		f.Intrinsic.String.Build("Select OptionValue from GCG_5417_Option where UserID = '{0}' and OptionName = '{1}'",v.Global.sUserID,v.Local.sDisplayOption,v.Local.sSQL)
+		f.ODBC.Connection!conx.ExecuteAndReturn(v.Local.sSQl,v.Local.sRet)
+		f.Intrinsic.Control.If(v.Local.sRet,=,"")
+			f.Intrinsic.String.Build("Insert into GCG_5417_Option (UserID,OptionName,OptionValue) values ('{0}','{1}','{2}')",v.Global.sUserID,v.Local.sDisplayOption,v.Screen.Form![v.Local.sDisplayOption].Value,v.Local.sSQL)
+		f.Intrinsic.Control.Else
+			f.Intrinsic.String.Build("Update GCG_5417_Option set OptionValue =  '{2}' Where UserID = '{0}' and OptionName = '{1}'",v.Global.sUserID,v.Local.sDisplayOption,v.Screen.Form![v.Local.sDisplayOption].Value,v.Local.sSQL)
+		f.Intrinsic.Control.EndIf
+		f.ODBC.Connection!conx.Execute(v.Local.sSQL)	
+	f.Intrinsic.Control.Next(v.Local.iCnt)
+	
+	'Decimal Option
+	'Generate Dropdown values for Decimal Options
+	f.Intrinsic.String.Split(v.Global.sToConfigureDecimalColumnNames,",",v.Local.sDropdownName)	
+	f.Intrinsic.Control.For(v.Local.iCnt,0,v.Local.sDropdownName.UBound,1)
+		f.Intrinsic.String.build("ddl{0}",v.Local.sDropdownName(v.Local.iCnt),v.Local.sDropdownControl)
+		'Select and set option
+		f.Intrinsic.String.Build("Select OptionValue from GCG_5417_Option where UserID = '{0}' and OptionName = '{1}'",v.Global.sUserID,v.Local.sDropdownControl,v.Local.sSQL)
+		f.ODBC.Connection!conx.ExecuteAndReturn(v.Local.sSQl,v.Local.sRet)
+		f.Intrinsic.Control.If(v.Local.sRet,=,"")
+			f.Intrinsic.String.Build("Insert into GCG_5417_Option (UserID,OptionName,OptionValue) values ('{0}','{1}','{2}')",v.Global.sUserID,v.Local.sDropdownControl,v.Screen.Form![v.Local.sDropdownControl].Text,v.Local.sSQL)
+		f.Intrinsic.Control.Else
+			f.Intrinsic.String.Build("Update GCG_5417_Option set OptionValue =  '{2}' Where UserID = '{0}' and OptionName = '{1}'",v.Global.sUserID,v.Local.sDropdownControl,v.Screen.Form![v.Local.sDropdownControl].Text,v.Local.sSQL)
+		f.Intrinsic.Control.EndIf	
+		f.ODBC.Connection!conx.Execute(v.Local.sSQL)
+	f.Intrinsic.Control.Next(v.Local.iCnt)
+	
+	f.Intrinsic.UI.CloseWaitDialog
+	
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}GAB Version: {5}}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	f.Intrinsic.Control.CallSub("Unload")
+F.Intrinsic.Control.EndTry	
+Program.Sub.cmdSaveOption_Click.End
+
+Program.Sub.cmdCreateParts_Click.Start
+f.Intrinsic.Control.Try
+	v.Local.sError.Declare
+	v.Local.iCnt.Declare
+	v.Local.sPart.Declare
+	v.Local.sUM_Inventory.Declare
+	v.Local.sLocation.Declare
+	v.Local.sDescr.Declare
+	v.Local.sProduct_Line.Declare
+	v.Local.sSource.Declare
+	v.Local.sPrice.Declare
+	v.Local.sHold.Declare	
+	v.Local.sRev.Declare
+	v.Local.sCode_Sort.Declare
+	v.Local.sBin.Declare
+	v.Local.sUM_Purchasing.Declare
+	v.Local.sFACTOR_CONVERSION.Declare
+	v.Local.sAMT_Price.Declare
+	v.Local.sQty_Order.Declare
+	v.Local.sQty_Reorder.Declare
+	v.Local.sTIME_MATERIAL_LEAD.Declare
+	v.Local.sStock_Bin.Declare
+	v.Local.sAUTO_LOT_NUM.Declare
+	v.Local.sREQUIRES_INSP.Declare
+	v.Local.sParentSource.Declare
+	v.Local.sSQL.Declare
+	v.Local.sFlag_Lot.Declare
+	v.Local.sVendor_Sort.Declare
+	v.Local.sMatl_Cost.Declare
+	
+	f.Intrinsic.Control.If(v.DataTable.Bom.RowCount,=,0)
+		f.Intrinsic.UI.Msgbox("Please select a valid Bom and click Load","Invalid")
+		f.Intrinsic.Control.ExitSub
+	f.Intrinsic.Control.EndIf
+	
+'This needs sometime to see if we really want to remove and not use it
+'	f.Intrinsic.Control.If(v.Screen.Form!ddlBomSource.Text.Trim,=,"")
+'		f.Intrinsic.UI.Msgbox("Please select Parent Bom Source","Invalid Source")
+'		f.Intrinsic.Control.ExitSub
+'	f.Intrinsic.Control.EndIf
+'	f.Intrinsic.String.Split(v.Screen.Form!ddlBomSource.Text.Trim,"-",v.Local.sParentSource)
+
+	'Validate selection
+	f.Data.DataView.SetFilter("Bom","BomDV","PartExist = 'No' and SelectRow = 1")
+	f.Intrinsic.Control.If(v.DataView.Bom!BomDV.RowCount,=,0)
+		f.Intrinsic.UI.Msgbox("No Parts to create","Select Part")
+		f.Intrinsic.Control.ExitSub
+	f.Intrinsic.Control.EndIf
+	'Validate PL
+	f.Data.DataView.SetFilter("Bom","BomDV","PartExist = 'No' and SelectRow = 1 and trim(IsNull(PL,'')) = ''")
+	f.Intrinsic.Control.If(v.DataView.Bom!BomDV.RowCount,>,0)
+		f.Intrinsic.UI.Msgbox("Please make sure the PL is selected for the Parts","Invalid PL")
+		f.Intrinsic.Control.ExitSub
+	f.Intrinsic.Control.EndIf
+	'Validate Source
+	f.Data.DataView.SetFilter("Bom","BomDV","PartExist = 'No' and SelectRow = 1 and trim(IsNull(Source,'')) = ''")
+	f.Intrinsic.Control.If(v.DataView.Bom!BomDV.RowCount,>,0)
+		f.Intrinsic.UI.Msgbox("Please make sure the Source is selected for the Parts","Invalid Source")
+		f.Intrinsic.Control.ExitSub
+	f.Intrinsic.Control.EndIf
+	
+	'Prepare
+	f.Data.DataView.SetFilter("Bom","BomDV","PartExist = 'No' and SelectRow = 1")
+	
+	'Tunr of indicators
+	'f.Intrinsic.UI.InvokeWaitDialog("Creating Parts...")
+	gui.Form.lblCreating.Visible(True)
+	f.Intrinsic.Control.If(v.DataView.Bom!BomDV.RowCount,>,0)
+		gui.Form.proBarMainTab.Visible(True)
+		gui.Form.proBarMainTab.Max(v.DataView.Bom!BomDV.RowCount)
+	f.Intrinsic.Control.EndIf
+	
+	f.Intrinsic.Control.For(v.Local.iCnt,0,v.DataView.Bom!BomDV.RowCount--,1)		
+		gui.Form.proBarMainTab.Value(v.Local.iCnt)
+		v.Local.sPart.Set(v.DataView.Bom!BomDV(v.Local.iCnt).Part!FieldValString)
+		f.Intrinsic.String.Build("Creating part '{0}' ...",v.Local.sPart,v.Local.sHold)
+		'f.Intrinsic.UI.ChangeWaitStatus(v.Local.sHold)
+		v.Local.sLocation.Set(v.DataView.Bom!BomDV(v.Local.iCnt).Location!FieldValString)
+		v.Local.sUM_Inventory.Set(v.DataView.Bom!BomDV(v.Local.iCnt).UM_Inventory!FieldValString)
+		v.Local.sDescr.Set(v.DataView.Bom!BomDV(v.Local.iCnt).Description!FieldValString)
+		v.Local.sProduct_Line.Set(v.DataView.Bom!BomDV(v.Local.iCnt).PL!FieldValString)
+		v.Local.sVendor_Sort.Set(v.DataView.Bom!BomDV(v.Local.iCnt).Vendor_Sort!FieldValString)
+		v.Local.sMatl_Cost.Set(v.DataView.Bom!BomDV(v.Local.iCnt).Matl_Cost!FieldValString)
+		
+		'Source code		
+		v.Local.sSource.Set(v.DataView.Bom!BomDV(v.Local.iCnt).Source2!FieldValString)
+		'f.Intrinsic.Control.If(v.DataView.Bom!BomDV(v.Local.iCnt).Rec_Seq!FieldValString,=,"000000")
+			'v.Local.sSource.Set(v.Local.sParentSource(0).Trim)
+		'f.Intrinsic.Control.EndIf
+		v.Local.sPrice.Set(v.DataView.Bom!BomDV(v.Local.iCnt).Cost!FieldValString)
+		
+		'Create Part
+		F.Global.Inventory.CreatePart(v.Local.sPart.UCase,v.Local.sUM_Inventory,v.Local.sDescr,v.Local.sLocation,v.Local.sProduct_Line,v.Local.sSource,"","",v.Local.sPrice,"NOMAINT")
+		
+		'Updating values to the part
+		v.Local.sRev.Set(v.DataView.Bom!BomDV(v.Local.iCnt).Rev!FieldValString)
+		v.Local.sCode_Sort.Set(v.DataView.Bom!BomDV(v.Local.iCnt).Code_Sort!FieldValString)
+		v.Local.sBin.Set(v.DataView.Bom!BomDV(v.Local.iCnt).Bin!FieldValString)
+		v.Local.sUM_Purchasing.Set(v.DataView.Bom!BomDV(v.Local.iCnt).UM_Purchasing!FieldValString)
+		v.Local.sFACTOR_CONVERSION.Set(v.DataView.Bom!BomDV(v.Local.iCnt).FACTOR_CONVERSION!FieldValString)
+		v.Local.sAMT_Price.Set(v.DataView.Bom!BomDV(v.Local.iCnt).AMT_Price!FieldValString)
+		v.Local.sQty_Order.Set(v.DataView.Bom!BomDV(v.Local.iCnt).Qty_Order!FieldValString)
+		v.Local.sQty_Reorder.Set(v.DataView.Bom!BomDV(v.Local.iCnt).Qty_Reorder!FieldValString)
+		v.Local.sTIME_MATERIAL_LEAD.Set(v.DataView.Bom!BomDV(v.Local.iCnt).TIME_MATERIAL_LEAD!FieldValString)
+		v.Local.sStock_Bin.Set(v.DataView.Bom!BomDV(v.Local.iCnt).Stock_Bin!FieldValString)
+		v.Local.sAUTO_LOT_NUM.Set(v.DataView.Bom!BomDV(v.Local.iCnt).AUTO_LOT_NUM!FieldValString)
+		v.Local.sREQUIRES_INSP.Set(v.DataView.Bom!BomDV(v.Local.iCnt).REQUIRES_INSP!FieldValString)
+		'v.Local.sAMT_ALT_COST.Set(v.DataView.Bom!BomDV(v.Local.iCnt).AMT_ALT_COST!FieldValString)
+		v.Local.sFlag_Lot.Set(v.DataView.Bom!BomDV(v.Local.iCnt).Flag_Lot!FieldValString)
+		'Inventory_MSTR
+		f.Intrinsic.String.Build("Update Inventory_MSTR set  Bin = '{2}', UM_Inventory = '{3}', UM_PURCHASING = '{4}', FACTOR_CONVERSION = '{5}', AMT_Price = '{6}', Qty_Order = '{7}', Qty_Reorder = '{8}', TIME_MATERIAL_LEAD = '{9}',Code_Sort = '{10}',Description = '{11}',PRODUCT_LINE = '{12}', Flag_Lot = '{13}', flag_inactive = 'N'  Where ltrim(rtrim(Part)) = '{0}' and ltrim(rtrim(Location)) = '{1}'",v.Local.sPart.trim,v.Local.sLocation.trim,v.local.sBin,v.local.sUM_Inventory,v.local.sUM_PURCHASING,v.local.sFACTOR_CONVERSION,v.local.sAMT_Price,v.local.sQty_Order,v.local.sQty_Reorder,v.local.sTIME_MATERIAL_LEAD,v.Local.sCode_Sort,v.Local.sDescr,v.Local.sProduct_Line,v.Local.sFlag_Lot,v.Local.sSQL)
+		f.ODBC.Connection!conx.Execute(v.Local.sSQL)
+		'Inventory_MST2
+		f.Intrinsic.String.Build("Update Inventory_MST2 set REQUIRES_INSP = '{2}',Code_Source = '{3}',Name_Vendor = '{4}' Where ltrim(rtrim(Part)) = '{0}' and ltrim(rtrim(Location)) = '{1}'",v.Local.sPart.trim,v.Local.sLocation.trim,v.Local.sREQUIRES_INSP,v.Local.sSource,v.Local.sVendor_Sort.PSQLFriendly,v.Local.sSQL)
+		f.ODBC.Connection!conx.Execute(v.Local.sSQL)
+		'Inventory_MST3
+		f.Intrinsic.String.Build("Update Inventory_MST3 set Stock_Bin = '{2}', AUTO_LOT_NUM = '{3}' Where ltrim(rtrim(Part)) = '{0}' and ltrim(rtrim(Location)) = '{1}'",v.Local.sPart.trim,v.Local.sLocation.trim,v.Local.sStock_Bin,v.Local.sAUTO_LOT_NUM,v.Local.sSQL)
+		f.ODBC.Connection!conx.Execute(v.Local.sSQL)	
+		'Inventory_Cost
+		f.Intrinsic.String.Build("Update Inventory_Cost set Matl = {2}, Cost = Cost + {2} Where ltrim(rtrim(Part)) = '{0}' and ltrim(rtrim(Locn)) = '{1}'",v.Local.sPart.trim,v.Local.sLocation.trim,v.Local.sMatl_Cost,v.Local.sSQL)
+		f.ODBC.Connection!conx.Execute(v.Local.sSQL)	
+		'Inventory_Cost Cost
+		f.Intrinsic.String.Build("Update Inventory_Cost set Cost = Matl + Labor + Ovhd + Outs + Freight + Oth  Where ltrim(rtrim(Part)) = '{0}' and ltrim(rtrim(Locn)) = '{1}'",v.Local.sPart.trim,v.Local.sLocation.trim,v.Local.sSQL)
+		f.ODBC.Connection!conx.Execute(v.Local.sSQL)		
+		
+	f.Intrinsic.Control.Next(v.Local.iCnt)
+	
+	'Turn off indicators
+	'f.Intrinsic.UI.CloseWaitDialog	
+	gui.Form.lblCreating.Visible(False)
+	gui.Form.proBarMainTab.Visible(False)
+	'Done
+	f.Intrinsic.UI.Msgbox("Creating done")
+	
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}GAB Version: {5}}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	f.Intrinsic.Control.CallSub("Unload")
+F.Intrinsic.Control.EndTry
+
+Program.Sub.cmdCreateParts_Click.End
+
+Program.Sub.cmdCUpdateExistingParts_Click.Start
+f.Intrinsic.Control.Try
+	v.Local.sError.Declare
+	v.Local.iCnt.Declare
+	v.Local.sPart.Declare
+	v.Local.sUM_Inventory.Declare
+	v.Local.sLocation.Declare
+	v.Local.sDescr.Declare
+	v.Local.sProduct_Line.Declare
+	v.Local.sSource.Declare
+	v.Local.sPrice.Declare
+	v.Local.sHold.Declare
+	v.Local.sSQL.Declare		
+	v.Local.sRev.Declare
+	v.Local.sCode_Sort.Declare
+	v.Local.sBin.Declare
+	v.Local.sUM_Purchasing.Declare
+	v.Local.sFACTOR_CONVERSION.Declare
+	v.Local.sAMT_Price.Declare
+	v.Local.sQty_Order.Declare
+	v.Local.sQty_Reorder.Declare
+	v.Local.sTIME_MATERIAL_LEAD.Declare
+	v.Local.sStock_Bin.Declare
+	v.Local.sAUTO_LOT_NUM.Declare
+	v.Local.sREQUIRES_INSP.Declare
+	'v.Local.sAMT_ALT_COST.Declare	
+	v.Local.sParentSource.Declare
+	v.Local.sDrawing.Declare
+	v.Local.sFlag_Lot.Declare
+	v.Local.sVendor_Sort.Declare
+	v.Local.sMatl_Cost.Declare	
+	
+	'Validate
+	f.Intrinsic.Control.If(v.DataTable.Bom.RowCount,=,0)
+		f.Intrinsic.UI.Msgbox("Please select a valid Bom and click Load","Invalid")
+		f.Intrinsic.Control.ExitSub
+	f.Intrinsic.Control.EndIf	
+'This needs sometime to see if we really want to remove and not use it	
+'	f.Intrinsic.Control.If(v.Screen.Form!ddlBomSource.Text.Trim,=,"")
+'		f.Intrinsic.UI.Msgbox("Please select Parent Bom Source","Invalid Source")
+'		f.Intrinsic.Control.ExitSub
+'	f.Intrinsic.Control.EndIf
+'	f.Intrinsic.String.Split(v.Screen.Form!ddlBomSource.Text.Trim,"-",v.Local.sParentSource)
+	
+	'Validate selection
+	f.Data.DataView.SetFilter("Bom","BomDV","PartExist = 'Yes' and SelectRow = 1")
+	f.Intrinsic.Control.If(v.DataView.Bom!BomDV.RowCount,=,0)
+		f.Intrinsic.UI.Msgbox("No Parts to update","Select Part")
+		f.Intrinsic.Control.ExitSub
+	f.Intrinsic.Control.EndIf
+	'Validate PL
+	f.Data.DataView.SetFilter("Bom","BomDV","PartExist = 'Yes' and SelectRow = 1 and trim(IsNull(PL,'')) = ''")
+	f.Intrinsic.Control.If(v.DataView.Bom!BomDV.RowCount,>,0)
+		f.Intrinsic.UI.Msgbox("Please make sure the PL is selected for the Parts","Invalid PL")
+		f.Intrinsic.Control.ExitSub
+	f.Intrinsic.Control.EndIf
+	'Validate Source
+	f.Data.DataView.SetFilter("Bom","BomDV","PartExist = 'Yes' and SelectRow = 1 and trim(IsNull(Source,'')) = ''")
+	f.Intrinsic.Control.If(v.DataView.Bom!BomDV.RowCount,>,0)
+		f.Intrinsic.UI.Msgbox("Please make sure the Source is selected for the Parts","Invalid Source")
+		f.Intrinsic.Control.ExitSub
+	f.Intrinsic.Control.EndIf
+
+	'Prepare
+	f.Data.DataView.SetFilter("Bom","BomDV","PartExist = 'Yes' and SelectRow = 1")
+
+	'Turn on indicators
+	f.Intrinsic.UI.InvokeWaitDialog("Updating Parts...")
+	gui.Form.lblUpdating.Visible(True)
+	f.Intrinsic.Control.If(v.DataView.Bom!BomDV.RowCount,>,0)
+		gui.Form.proBarMainTab.Visible(True)
+		gui.Form.proBarMainTab.Max(v.DataView.Bom!BomDV.RowCount)
+	f.Intrinsic.Control.EndIf
+	
+	f.Intrinsic.Control.For(v.Local.iCnt,0,v.DataView.Bom!BomDV.RowCount--,1)
+		gui.Form.proBarMainTab.Value(v.Local.iCnt)
+		v.Local.sPart.Set(v.DataView.Bom!BomDV(v.Local.iCnt).Part!FieldValString)
+		f.Intrinsic.String.Build("Updating part '{0}' ...",v.Local.sPart,v.Local.sHold)
+		f.Intrinsic.UI.ChangeWaitStatus(v.Local.sHold)
+		
+		v.Local.sLocation.Set(v.DataView.Bom!BomDV(v.Local.iCnt).Location!FieldValString)
+		v.Local.sUM_Inventory.Set(v.DataView.Bom!BomDV(v.Local.iCnt).UM_Inventory!FieldValString)
+		v.Local.sDescr.Set(v.DataView.Bom!BomDV(v.Local.iCnt).Description!FieldValString)
+		v.Local.sProduct_Line.Set(v.DataView.Bom!BomDV(v.Local.iCnt).PL!FieldValString)
+		v.Local.sSource.Set(v.DataView.Bom!BomDV(v.Local.iCnt).Source2!FieldValString)
+		f.Intrinsic.Control.If(v.DataView.Bom!BomDV(v.Local.iCnt).Rec_Seq!FieldValString,=,"000000")
+			v.Local.sSource.Set(v.Local.sParentSource(0).Trim)
+		f.Intrinsic.Control.EndIf
+		v.Local.sPrice.Set(v.DataView.Bom!BomDV(v.Local.iCnt).Cost!FieldValString)	
+
+		v.Local.sRev.Set(v.DataView.Bom!BomDV(v.Local.iCnt).Rev!FieldValString)
+		v.Local.sCode_Sort.Set(v.DataView.Bom!BomDV(v.Local.iCnt).Code_Sort!FieldValString)
+		v.Local.sBin.Set(v.DataView.Bom!BomDV(v.Local.iCnt).Bin!FieldValString)
+		v.Local.sUM_Purchasing.Set(v.DataView.Bom!BomDV(v.Local.iCnt).UM_Purchasing!FieldValString)
+		v.Local.sFACTOR_CONVERSION.Set(v.DataView.Bom!BomDV(v.Local.iCnt).FACTOR_CONVERSION!FieldValString)
+		v.Local.sAMT_Price.Set(v.DataView.Bom!BomDV(v.Local.iCnt).AMT_Price!FieldValString)
+		v.Local.sQty_Order.Set(v.DataView.Bom!BomDV(v.Local.iCnt).Qty_Order!FieldValString)
+		v.Local.sQty_Reorder.Set(v.DataView.Bom!BomDV(v.Local.iCnt).Qty_Reorder!FieldValString)
+		v.Local.sTIME_MATERIAL_LEAD.Set(v.DataView.Bom!BomDV(v.Local.iCnt).TIME_MATERIAL_LEAD!FieldValString)
+		v.Local.sStock_Bin.Set(v.DataView.Bom!BomDV(v.Local.iCnt).Stock_Bin!FieldValString)
+		v.Local.sAUTO_LOT_NUM.Set(v.DataView.Bom!BomDV(v.Local.iCnt).AUTO_LOT_NUM!FieldValString)
+		v.Local.sREQUIRES_INSP.Set(v.DataView.Bom!BomDV(v.Local.iCnt).REQUIRES_INSP!FieldValString)
+		v.Local.sDrawing.Set(v.DataView.Bom!BomDV(v.Local.iCnt).Drawing!FieldValString)
+		v.Local.sFlag_Lot.Set(v.DataView.Bom!BomDV(v.Local.iCnt).Flag_Lot!FieldValString)
+		v.Local.sVendor_Sort.Set(v.DataView.Bom!BomDV(v.Local.iCnt).Vendor_Sort!FieldValString)
+		v.Local.sMatl_Cost.Set(v.DataView.Bom!BomDV(v.Local.iCnt).Matl_Cost!FieldValString)
+		
+		'Inventory_MSTR
+		f.Intrinsic.String.Build("Update Inventory_MSTR set  Bin = '{2}', UM_Inventory = '{3}', UM_PURCHASING = '{4}', FACTOR_CONVERSION = '{5}', AMT_Price = '{6}', Qty_Order = '{7}', Qty_Reorder = '{8}', TIME_MATERIAL_LEAD = '{9}',Code_Sort = '{10}',Description = '{11}',PRODUCT_LINE = '{12}', Flag_Lot = '{13}'  Where ltrim(rtrim(Part)) = '{0}' and ltrim(rtrim(Location)) = '{1}'",v.Local.sPart.trim,v.Local.sLocation.trim,v.local.sBin,v.local.sUM_Inventory,v.local.sUM_PURCHASING,v.local.sFACTOR_CONVERSION,v.local.sAMT_Price,v.local.sQty_Order,v.local.sQty_Reorder,v.local.sTIME_MATERIAL_LEAD,v.Local.sCode_Sort,v.Local.sDescr,v.Local.sProduct_Line,v.Local.sSQL)
+		f.ODBC.Connection!conx.Execute(v.Local.sSQL)
+		'Inventory_MST3
+		f.Intrinsic.String.Build("Update Inventory_MST3 set Stock_Bin = '{2}', AUTO_LOT_NUM = '{3}' Where ltrim(rtrim(Part)) = '{0}' and ltrim(rtrim(Location)) = '{1}'",v.Local.sPart.trim,v.Local.sLocation.trim,v.Local.sStock_Bin,v.Local.sAUTO_LOT_NUM,v.Local.sSQL)
+		f.ODBC.Connection!conx.Execute(v.Local.sSQL)
+		'Inventory_MST2
+		f.Intrinsic.String.Build("Update Inventory_MST2 set REQUIRES_INSP = '{2}',Code_Source = '{3}', Name_Vendor = '{4}' Where ltrim(rtrim(Part)) = '{0}' and ltrim(rtrim(Location)) = '{1}'",v.Local.sPart.trim,v.Local.sLocation.trim,v.Local.sREQUIRES_INSP,v.Local.sSource,v.Local.sVendor_Sort.PSQLFriendly,v.Local.sSQL)
+		f.ODBC.Connection!conx.Execute(v.Local.sSQL)
+		'Update Bom_Mstr.Drawing		
+		f.Intrinsic.String.Build("Update Bom_Mstr set Drawing = '{1}' Where ltrim(rtrim(Part)) = '{0}'",v.Local.sPart.trim,v.Local.sDrawing,v.Local.sSQL)
+		f.ODBC.Connection!conx.Execute(v.Local.sSQL)	
+		'Inventory_Cost
+		f.Intrinsic.String.Build("Update Inventory_Cost set Matl = {2}, Cost = Cost + {2} Where ltrim(rtrim(Part)) = '{0}' and ltrim(rtrim(Locn)) = '{1}'",v.Local.sPart.trim,v.Local.sLocation.trim,v.Local.sMatl_Cost,v.Local.sSQL)
+		f.ODBC.Connection!conx.Execute(v.Local.sSQL)	
+		'Inventory_Cost Cost
+		f.Intrinsic.String.Build("Update Inventory_Cost set Cost = Matl + Labor + Ovhd + Outs + Freight + Oth  Where ltrim(rtrim(Part)) = '{0}' and ltrim(rtrim(Locn)) = '{1}'",v.Local.sPart.trim,v.Local.sLocation.trim,v.Local.sSQL)
+		f.ODBC.Connection!conx.Execute(v.Local.sSQL)			
+		
+	f.Intrinsic.Control.Next(v.Local.iCnt)
+	
+	'Turn on indicators
+	f.Intrinsic.UI.CloseWaitDialog
+	gui.Form.lblUpdating.Visible(False)
+	gui.Form.proBarMainTab.Visible(False)
+	'Done
+	f.Intrinsic.UI.Msgbox("Updating done")
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}GAB Version: {5}}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	f.Intrinsic.Control.CallSub("Unload")
+F.Intrinsic.Control.EndTry
+Program.Sub.cmdCUpdateExistingParts_Click.End
+
+Program.Sub.gsBom_RowClick.Start
+F.Intrinsic.Control.Try
+	V.Local.sError.Declare	
+	v.Local.sNode.Declare
+	
+	V.Local.sNode.Set(v.DataTable.Bom(v.Args.RowIndex).Node!FieldValString)	
+	'Reset previous bold to non
+	f.Intrinsic.Control.If(v.Screen.Form!txtBoldNode.Text.Trim,<>,"")
+		Gui.Form.trvBom.SetNodeProps(v.Screen.Form!txtBoldNode.Text,False,"",True)
+	f.Intrinsic.Control.EndIf
+	'Set the current node bold
+	Gui.Form.trvBom.SetNodeProps(v.Local.sNode,True,"",True)
+	'Set the Node for the next use
+	gui.Form.txtBoldNode.Text(v.Local.sNode)	
+	
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}GAB Version: {5}}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	f.Intrinsic.Control.CallSub("Unload")
+F.Intrinsic.Control.EndTry
+Program.Sub.gsBom_RowClick.End
+
+Program.Sub.gsBom_RowCellClick.Start
+F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	v.Local.sNode.Declare
+	v.Local.sColumn.Declare
+	V.LocaL.sHold.Declare
+	v.Local.sSQl.Declare
+	v.Local.sRet.Declare
+	v.Local.sOpenFlag.Declare
+	
+	f.Intrinsic.String.UCase(v.Args.Column,v.Local.sColumn)
+	
+	V.Local.sNode.Set(v.DataTable.Bom(v.Args.RowIndex).Node!FieldValString)	
+	'Reset previous bold to non
+	f.Intrinsic.Control.If(v.Screen.Form!txtBoldNode.Text.Trim,<>,"")
+		Gui.Form.trvBom.SetNodeProps(v.Screen.Form!txtBoldNode.Text,False,"",True)
+	f.Intrinsic.Control.EndIf
+	'Set the current node bold
+	Gui.Form.trvBom.SetNodeProps(v.Local.sNode,True,"",True)
+	'Set the Node for the next use
+	gui.Form.txtBoldNode.Text(v.Local.sNode)
+	
+	f.Intrinsic.Control.SelectCase(v.Local.sColumn)
+		f.Intrinsic.Control.Case("PART")
+			f.Intrinsic.String.Build("Select * from Inventory_Mstr where Part = '{0}' and Location = '{1}'",v.DataTable.Bom(v.Args.RowIndex).Part!FieldValString,v.DataTable.Bom(v.Args.RowIndex).Location!FieldValString,v.Local.sSQL)
+			f.ODBC.Connection!conx.ExecuteAndReturn(v.Local.sSQl,v.Local.sRet)
+			f.Intrinsic.Control.If(v.Local.sRet.Trim,=,"")
+				v.Local.sOpenFlag.Set("N")
+			f.Intrinsic.Control.Else
+				v.Local.sOpenFlag.Set("O")		
+			f.Intrinsic.Control.EndIf
+			
+			f.Intrinsic.String.Build("{0}!*!{1}!*!!*!S!*!{2}!*!{3}",v.Caller.CompanyCode,v.Local.sOpenFlag,v.DataTable.Bom(v.Args.RowIndex).Part!FieldValString,v.DataTable.Bom(v.Args.RowIndex).Location!FieldValString,v.Local.sHold)
+			GUI.Form..Enabled(False)
+			F.Global.General.CallWrapperSync(3500,v.Local.sHold)
+			gui.Form..Enabled(True)
+			GUI.Form..SetFocus	
+	f.Intrinsic.Control.EndSelect
+	
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}GAB Version: {5}}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	f.Intrinsic.Control.CallSub("Unload")
+F.Intrinsic.Control.EndTry
+Program.Sub.gsBom_RowCellClick.End
+
+Program.Sub.gsBom_CellValueChanged.Start
+'This sub is for future added features if needed
+F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	v.Local.sColumn.Declare	
+	v.Local.sHold.Declare
+	V.Local.sCheckValue.Declare
+	v.Local.bCheck.Declare
+
+	v.Local.sSource.Declare
+	v.Local.sSource2.Declare
+	
+	'point
+	f.Intrinsic.String.UCase(v.Args.Column,v.Local.sColumn)
+	
+	f.Intrinsic.Control.SelectCase(v.Local.sColumn)
+		f.Intrinsic.Control.Case("PL")
+			F.Intrinsic.String.Split(V.DataTable.BOM(V.Args.RowIndex).PL!FieldValString,"~",v.Local.sHold)
+			f.Intrinsic.String.Build("*!*{0}*!*",v.Local.sHold(0).Trim,v.Local.sCheckValue)
+			F.Intrinsic.String.IsInString(v.Global.sPLRange2,v.Local.sCheckValue,True,v.Local.bCheck)
+			f.Intrinsic.Control.If(v.Local.bCheck)
+				f.Data.DataTable.SetValue("Bom",v.Args.RowIndex,"PL",v.Local.sHold(0).Trim)
+			f.Intrinsic.Control.Else
+				f.Data.DataTable.SetValue("Bom",v.Args.RowIndex,"PL","")
+				f.Intrinsic.UI.Msgbox("Invalid PL")
+			f.Intrinsic.Control.Endif	
+			
+		f.Intrinsic.Control.Case("UM_INVENTORY")
+			F.Intrinsic.String.Split(V.DataTable.BOM(V.Args.RowIndex).UM_INVENTORY!FieldValString,"~",v.Local.sHold)
+			f.Intrinsic.String.Build("*!*{0}*!*",v.Local.sHold(0).Trim,v.Local.sCheckValue)
+			F.Intrinsic.String.IsInString(v.Global.sUMRange2,v.Local.sCheckValue,True,v.Local.bCheck)
+			f.Intrinsic.Control.If(v.Local.bCheck)
+				f.Data.DataTable.SetValue("Bom",v.Args.RowIndex,"UM_INVENTORY",v.Local.sHold(0).Trim)
+			f.Intrinsic.Control.Else
+				f.Data.DataTable.SetValue("Bom",v.Args.RowIndex,"UM_INVENTORY","")
+				f.Intrinsic.UI.Msgbox("Invalid INVENTORY UM")
+			f.Intrinsic.Control.Endif
+			
+		f.Intrinsic.Control.Case("UM_PURCHASING")
+			F.Intrinsic.String.Split(V.DataTable.BOM(V.Args.RowIndex).UM_PURCHASING!FieldValString,"~",v.Local.sHold)
+			f.Intrinsic.String.Build("*!*{0}*!*",v.Local.sHold(0).Trim,v.Local.sCheckValue)
+			F.Intrinsic.String.IsInString(v.Global.sUMRange2,v.Local.sCheckValue,True,v.Local.bCheck)
+			f.Intrinsic.Control.If(v.Local.bCheck)
+				f.Data.DataTable.SetValue("Bom",v.Args.RowIndex,"UM_PURCHASING",v.Local.sHold(0).Trim)
+			f.Intrinsic.Control.Else
+				f.Data.DataTable.SetValue("Bom",v.Args.RowIndex,"UM_PURCHASING","")
+				f.Intrinsic.UI.Msgbox("Invalid PURCHASING UM")
+			f.Intrinsic.Control.Endif
+
+
+			
+		f.Intrinsic.Control.Case("BIN")
+			F.Intrinsic.String.Split(V.DataTable.BOM(V.Args.RowIndex).BIN!FieldValString,"~",v.Local.sHold)
+			f.Intrinsic.String.Build("*!*{0}*!*",v.Local.sHold(0).Trim,v.Local.sCheckValue)
+			F.Intrinsic.String.IsInString(v.Global.sBinRange2,v.Local.sCheckValue,True,v.Local.bCheck)
+			f.Intrinsic.Control.If(v.Local.bCheck)
+				f.Data.DataTable.SetValue("Bom",v.Args.RowIndex,"BIN",v.Local.sHold(0).Trim)
+				f.Data.DataTable.SetValue("Bom",v.Args.RowIndex,"STOCK_BIN",v.Local.sHold(0).Trim)
+			f.Intrinsic.Control.Else
+				f.Data.DataTable.SetValue("Bom",v.Args.RowIndex,"BIN","")
+				f.Intrinsic.UI.Msgbox("Invalid BIN")
+			f.Intrinsic.Control.Endif
+
+		f.Intrinsic.Control.Case("VENDOR_SORT")		
+			F.Intrinsic.String.Split(V.DataTable.BOM(V.Args.RowIndex).Vendor_Sort!FieldValString,"~",v.Local.sHold)
+			f.Intrinsic.String.Build("*!*{0} ~",v.Local.sHold(0).Trim,v.Local.sCheckValue)
+			F.Intrinsic.String.IsInString(v.Global.sVendorRange,v.Local.sCheckValue,True,v.Local.bCheck)
+			f.Intrinsic.Control.If(v.Local.bCheck)
+				f.Data.DataTable.SetValue("Bom",v.Args.RowIndex,"Vendor_Sort",v.Local.sHold(0).Trim)
+			f.Intrinsic.Control.Else
+				f.Data.DataTable.SetValue("Bom",v.Args.RowIndex,"Vendor_Sort","")
+				f.Intrinsic.UI.Msgbox("Invalid Vendor Code")
+			f.Intrinsic.Control.Endif
+			
+		f.Intrinsic.Control.Case("STOCK_BIN")
+			F.Intrinsic.String.Split(V.DataTable.BOM(V.Args.RowIndex).STOCK_BIN!FieldValString,"~",v.Local.sHold)
+			f.Intrinsic.String.Build("*!*{0}*!*",v.Local.sHold(0).Trim,v.Local.sCheckValue)
+			F.Intrinsic.String.IsInString(v.Global.sBinRange2,v.Local.sCheckValue,True,v.Local.bCheck)
+			f.Intrinsic.Control.If(v.Local.bCheck)
+				f.Data.DataTable.SetValue("Bom",v.Args.RowIndex,"STOCK_BIN",v.Local.sHold(0).Trim)
+			f.Intrinsic.Control.Else
+				f.Data.DataTable.SetValue("Bom",v.Args.RowIndex,"STOCK_BIN","")
+				f.Intrinsic.UI.Msgbox("Invalid STOCK BIN")
+			f.Intrinsic.Control.Endif
+			
+		f.Intrinsic.Control.Case("CODE_SORT")
+			F.Intrinsic.String.Split(V.DataTable.BOM(V.Args.RowIndex).CODE_SORT!FieldValString,"~",v.Local.sHold)
+			f.Intrinsic.String.Build("*!*{0}*!*",v.Local.sHold(0).Trim,v.Local.sCheckValue)
+			F.Intrinsic.String.IsInString(v.Global.sCode_SortRange2,v.Local.sCheckValue,True,v.Local.bCheck)
+			f.Intrinsic.Control.If(v.Local.bCheck)
+				f.Data.DataTable.SetValue("Bom",v.Args.RowIndex,"CODE_SORT",v.Local.sHold(0).Trim)
+			f.Intrinsic.Control.Else
+				f.Data.DataTable.SetValue("Bom",v.Args.RowIndex,"CODE_SORT","")
+				f.Intrinsic.UI.Msgbox("Invalid SORT CODE")
+			f.Intrinsic.Control.Endif	
+			
+		f.Intrinsic.Control.Case("SOURCE")			
+			F.Intrinsic.String.Split(V.DataTable.BOM(V.Args.RowIndex).SOURCE!FieldValString,"~",v.Local.sHold)
+			f.Intrinsic.String.Build("*!*{0}*!*",v.Local.sHold(0).Trim,v.Local.sCheckValue)
+			F.Intrinsic.String.IsInString("*!*MS*!*MJ*!*PS*!*PJ*!*CS*!*CJ*!*",v.Local.sCheckValue,True,v.Local.bCheck)
+			f.Intrinsic.Control.If(v.Local.bCheck)
+
+				v.Local.sSource.Set(v.Local.sHold(0).Trim)
+				f.Intrinsic.Control.SelectCase(v.Local.sSource)
+				
+					f.Intrinsic.Control.Case("MS")
+						V.Local.sSource2.Set("M")
+					f.Intrinsic.Control.Case("MJ")
+						V.Local.sSource2.Set("F")
+					f.Intrinsic.Control.Case("PS")
+						V.Local.sSource2.Set("P")
+					f.Intrinsic.Control.Case("PJ")
+						V.Local.sSource2.Set("J")
+					f.Intrinsic.Control.Case("CS")
+						V.Local.sSource2.Set("C")
+					F.Intrinsic.Control.Case("CJ")
+						V.Local.sSource2.Set("G")				
+				f.Intrinsic.Control.EndSelect			
+				
+				
+				f.Data.DataTable.SetValue("Bom",v.Args.RowIndex,"SOURCE",v.Local.sHold(0).Trim,"Source2",v.Local.sSource2)
+			f.Intrinsic.Control.Else
+				f.Data.DataTable.SetValue("Bom",v.Args.RowIndex,"SOURCE","","Source2","")
+				f.Intrinsic.UI.Msgbox("Invalid SOURCE CODE")
+			f.Intrinsic.Control.Endif	
+	
+		f.Intrinsic.Control.Case("REQUIRES_INSP")			
+			F.Intrinsic.String.Split(V.DataTable.BOM(V.Args.RowIndex).REQUIRES_INSP!FieldValString,"~",v.Local.sHold)
+			f.Intrinsic.Control.If(v.Local.sHold(0).Trim,=,"Y",or,v.Local.sHold(0).Trim,=,"")
+				f.Data.DataTable.SetValue("Bom",v.Args.RowIndex,"REQUIRES_INSP",v.Local.sHold(0).Trim)
+			f.Intrinsic.Control.Else
+				f.Data.DataTable.SetValue("Bom",v.Args.RowIndex,"REQUIRES_INSP","")
+				f.Intrinsic.UI.Msgbox("Invalid REQUIRES INSP")
+			f.Intrinsic.Control.Endif
+			
+		f.Intrinsic.Control.Case("AUTO_LOT_NUM")			
+			F.Intrinsic.String.Split(V.DataTable.BOM(V.Args.RowIndex).AUTO_LOT_NUM!FieldValString,"~",v.Local.sHold)
+			f.Intrinsic.Control.If(v.Local.sHold(0).Trim,=,"Y",or,v.Local.sHold(0).Trim,=,"")
+				f.Data.DataTable.SetValue("Bom",v.Args.RowIndex,"AUTO_LOT_NUM",v.Local.sHold(0).Trim)
+			f.Intrinsic.Control.Else
+				f.Data.DataTable.SetValue("Bom",v.Args.RowIndex,"AUTO_LOT_NUM","")
+				f.Intrinsic.UI.Msgbox("Invalid Auto Lot Recv value")
+			f.Intrinsic.Control.Endif
+
+	f.Intrinsic.Control.EndSelect
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}GAB Version: {5}}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	f.Intrinsic.Control.CallSub("Unload")
+F.Intrinsic.Control.EndTry
+Program.Sub.gsBom_CellValueChanged.End
+
+Program.Sub.chkSelectAllYes_Click.Start
+F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	f.Intrinsic.Control.If(v.DataTable.Bom.Exists,=,False)
+		f.Intrinsic.Control.ExitSub
+	f.Intrinsic.Control.EndIf
+	f.Intrinsic.Control.If(v.DataTable.Bom.RowCount,=,0)
+		f.Intrinsic.Control.ExitSub
+	f.Intrinsic.Control.EndIf
+	f.Data.DataView.SetFilter("Bom","BomDV","PartExist = 'Yes'")
+	f.Intrinsic.Control.If(v.Screen.Form!chkSelectAllYes.Value,=,1)
+		f.Data.DataView.SetValue("Bom","BomDV",-1,"SelectRow",True)
+	f.Intrinsic.Control.Else
+		f.Data.DataView.SetValue("Bom","BomDV",-1,"SelectRow",False)
+	f.Intrinsic.Control.EndIf
+	
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}GAB Version: {5}}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	f.Intrinsic.Control.CallSub("Unload")
+F.Intrinsic.Control.EndTry
+Program.Sub.chkSelectAllYes_Click.End
+
+Program.Sub.chkSelectAllNo_Click.Start
+F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	f.Intrinsic.Control.If(v.DataTable.Bom.Exists,=,False)
+		f.Intrinsic.Control.ExitSub
+	f.Intrinsic.Control.EndIf
+	f.Intrinsic.Control.If(v.DataTable.Bom.RowCount,=,0)
+		f.Intrinsic.Control.ExitSub
+	f.Intrinsic.Control.EndIf
+	f.Data.DataView.SetFilter("Bom","BomDV","PartExist = 'No'")
+	f.Intrinsic.Control.If(v.Screen.Form!chkSelectAllNo.Value,=,1)
+		f.Data.DataView.SetValue("Bom","BomDV",-1,"SelectRow",True)
+	f.Intrinsic.Control.Else
+		f.Data.DataView.SetValue("Bom","BomDV",-1,"SelectRow",False)
+	f.Intrinsic.Control.EndIf
+	
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}GAB Version: {5}}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	f.Intrinsic.Control.CallSub("Unload")
+F.Intrinsic.Control.EndTry
+Program.Sub.chkSelectAllNo_Click.End
+
+Program.Sub.cmdExport_Click.Start
+F.Intrinsic.Control.Try
+	V.Local.sError.Declare	
+	V.Local.sFileExport.Declare
+	V.Local.bExcel.Declare
+	V.Local.bFileLocked.Declare
+	V.Local.sMsg.Declare
+	v.Local.sBom.Declare
+	
+	v.Local.sBom.Set(v.Screen.Form!txtPart.Text.Trim)
+	F.Automation.MSExcel.CheckPresence(V.Local.bExcel)
+
+	F.Intrinsic.Control.If(V.Local.bExcel)
+		F.Intrinsic.String.Build("{0}\BomGenPart{1}_{2}.xlsx",V.Caller.LocalGssTempDir,v.Local.sBom.left20,v.Ambient.Now.FormatMMDDYYYYHhNnSs,V.Local.sFileExport)
+		F.Intrinsic.File.IsFileLocked(V.Local.sFileExport,V.Local.bFileLocked)
+		F.Intrinsic.Control.If(V.Local.bFileLocked)
+			F.Intrinsic.String.Build("File is already open. Please close and export again.{0}File: {1}",V.Ambient.NewLine,V.Local.sFileExport,V.Local.sMsg)
+			F.Intrinsic.UI.Msgbox(V.Local.sMsg,"File In Use")
+		F.Intrinsic.Control.Else
+			Gui.Form.gsBom.Export(V.Local.sFileExport,"xlsx")
+			F.Intrinsic.Task.ShellExec(0,"",V.Local.sFileExport,"","",1)
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.Else
+		F.Intrinsic.String.Build("{0}\BomGenPart{1}_{2.csv",V.Caller.LocalGssTempDir,v.Local.sBom.left20,v.Ambient.Now.FormatMMDDYYYYHhNnSs,V.Local.sFileExport)
+		F.Intrinsic.File.IsFileLocked(V.Local.sFileExport,V.Local.bFileLocked)
+		F.Intrinsic.Control.If(V.Local.bFileLocked)
+			F.Intrinsic.String.Build("File is already open. Please close and export again.{0}File: {1}",V.Ambient.NewLine,V.Local.sFileExport,V.Local.sMsg)
+			F.Intrinsic.UI.Msgbox(V.Local.sMsg,"File In Use")
+		F.Intrinsic.Control.Else
+			Gui.Form.gsBom.Export(V.Local.sFileExport,"csv")
+		F.Intrinsic.Control.EndIf
+		F.Intrinsic.Task.ShellExec(0,"",V.Local.sFileExport,"","",1)
+	F.Intrinsic.Control.EndIf		
+	
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub("Unload")
+F.Intrinsic.Control.EndTry
+Program.Sub.cmdExport_Click.End
+
+Program.Sub.chkALL_Click.Start
+F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	v.Local.iCnt.Declare
+	v.Local.sDisplayOption.Declare
+	v.Local.sToBeDisplayedColumnName.Declare
+	
+	'Get check/uncheck column display option
+	f.Intrinsic.String.Split(v.Global.sToBeDisplayedColumnNames,",",v.Local.sToBeDisplayedColumnName)
+	f.Intrinsic.Control.For(v.Local.iCnt,0,v.Local.sToBeDisplayedColumnName.UBound,1)
+		f.Intrinsic.String.Build("chkDisplay{0}",v.Local.sToBeDisplayedColumnName(v.Local.iCnt),v.Local.sDisplayOption)
+		gui.Form.[v.Local.sDisplayOption].Value(v.Screen.Form!chkALL.Value)
+		gui.Form.chkDisplayLevelCols.Value(v.Screen.Form!chkALL.Value)
+	f.Intrinsic.Control.Next(v.Local.iCnt)	
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub("Unload")
+F.Intrinsic.Control.EndTry
+Program.Sub.chkALL_Click.End
+
+Program.Sub.cmdExpandColumn_Click.Start
+F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	gui.Form.gsBom.SuspendLayout()
+	f.Intrinsic.Control.CallSub(FormatBulk,"GS","gsBom","GV","GVMain","sInputColumns",v.Global.sInvColumns,"sProperty","Width","sWidth",v.Screen.Form!txtExpandWidth.Text)
+	gui.Form.gsBom.ResumeLayout()
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub("Unload")
+F.Intrinsic.Control.EndTry
+Program.Sub.cmdExpandColumn_Click.End
+
+Program.Sub.chkExpandCol_Click.Start
+F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	f.Intrinsic.Control.If(v.Screen.Form!chkExpandCol.Value,=,1)
+		gui.Form.gsBom.SuspendLayout()
+		f.Intrinsic.Control.CallSub(FormatBulk,"GS","gsBom","GV","GVMain","sInputColumns",v.Global.sInvColumns,"sProperty","Width","sWidth",v.Screen.Form!txtExpandWidth.Text)
+		gui.Form.gsBom.ResumeLayout()	
+	f.Intrinsic.Control.Else
+		gui.Form.gsBom.SuspendLayout()
+		f.Intrinsic.Control.CallSub("Format_gsBom")
+		gui.Form.gsBom.ResumeLayout()
+	f.Intrinsic.Control.EndIf
+
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub("Unload")
+F.Intrinsic.Control.EndTry
+Program.Sub.chkExpandCol_Click.End
+
+Program.Sub.Comments.Start
+${$0$}$$}$$}$11/8/2017 10:46:58 AM$}$False
+${$3$}$0$}$$}$0$}$-1$}$$}$12:00:00 AM$}$
+Program.Sub.Comments.End
